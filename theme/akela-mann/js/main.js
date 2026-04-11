@@ -371,12 +371,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (servicesContainer && servicesTrack) {
         const items = Array.from(servicesTrack.children);
         if (items.length > 0) {
-            // Clone items for infinite effect (clone once at start and once at end)
+            // Clone for the end
             items.forEach(item => {
-                const cloneBefore = item.cloneNode(true);
-                const cloneAfter = item.cloneNode(true);
-                servicesTrack.appendChild(cloneAfter);
-                servicesTrack.insertBefore(cloneBefore, servicesTrack.firstChild);
+                servicesTrack.appendChild(item.cloneNode(true));
+            });
+            // Clone for the beginning (maintain order)
+            [...items].reverse().forEach(item => {
+                servicesTrack.insertBefore(item.cloneNode(true), servicesTrack.firstChild);
             });
 
             const getBubbleWidth = () => {
@@ -419,23 +420,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     servicesContainer.scrollLeft = (servicesContainer.scrollLeft / oldTotalWidth) * totalWidth;
                 });
 
-                // Auto-scroll logic with pause mechanism
+                // Auto-scroll logic with dynamic speed and direction
+                const defaultSpeed = 1.6;
+                const hoverSpeed = 5;
+                let currentScrollSpeed = defaultSpeed;
                 let isInteracting = false;
-                let autoScrollPaused = false;
-                let pauseTimeout;
-                let scrollSpeed = 1.6;
 
-                const pauseAutoScroll = (ms = 2000) => {
-                    autoScrollPaused = true;
-                    clearTimeout(pauseTimeout);
-                    pauseTimeout = setTimeout(() => {
-                        autoScrollPaused = false;
-                    }, ms);
-                };
-                
                 const autoScroll = () => {
-                    if (!isInteracting && !autoScrollPaused) {
-                        servicesContainer.scrollLeft += scrollSpeed;
+                    if (!isInteracting) {
+                        servicesContainer.scrollLeft += currentScrollSpeed;
                     }
                     requestAnimationFrame(autoScroll);
                 };
@@ -445,19 +438,35 @@ document.addEventListener('DOMContentLoaded', () => {
                 const startInteracting = () => { isInteracting = true; };
                 const stopInteracting = () => { isInteracting = false; };
 
-                servicesContainer.addEventListener('mouseenter', startInteracting);
-                servicesContainer.addEventListener('mouseleave', stopInteracting);
+                // We stop auto-scroll only during drag/touch or when mouse is inside the track (not over arrows)
+                servicesTrack.addEventListener('mouseenter', startInteracting);
+                servicesTrack.addEventListener('mouseleave', stopInteracting);
                 servicesContainer.addEventListener('touchstart', startInteracting);
                 servicesContainer.addEventListener('touchend', stopInteracting);
 
-                // Navigation buttons
+                // Navigation arrows: Hover to change direction and speed
+                servicesNext?.addEventListener('mouseenter', () => {
+                    currentScrollSpeed = hoverSpeed;
+                    isInteracting = false; // Ensure movement even if hovering
+                });
+                servicesNext?.addEventListener('mouseleave', () => {
+                    currentScrollSpeed = defaultSpeed;
+                });
+                
+                servicesPrev?.addEventListener('mouseenter', () => {
+                    currentScrollSpeed = -hoverSpeed;
+                    isInteracting = false; // Ensure movement even if hovering
+                });
+                servicesPrev?.addEventListener('mouseleave', () => {
+                    currentScrollSpeed = defaultSpeed;
+                });
+
+                // Navigation buttons: Click for a larger jump
                 servicesNext?.addEventListener('click', () => {
-                    pauseAutoScroll();
-                    servicesContainer.scrollBy({ left: -itemWidth, behavior: 'smooth' });
+                    servicesContainer.scrollBy({ left: itemWidth, behavior: 'smooth' });
                 });
                 servicesPrev?.addEventListener('click', () => {
-                    pauseAutoScroll();
-                    servicesContainer.scrollBy({ left: itemWidth, behavior: 'smooth' });
+                    servicesContainer.scrollBy({ left: -itemWidth, behavior: 'smooth' });
                 });
 
                 // Drag functionality

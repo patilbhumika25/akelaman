@@ -83,17 +83,17 @@
             <div class="services-slider-track">
                 <?php
                 $services = [
-                    ['🤝', 'JAB WE TALK', 'One-on-one empathetic listening sessions.', 'dark', 'jab-we-talk'],
-                    ['🌱', 'LIFE COACHING', 'Personalized guidance for your life goals.', 'light', 'life-coaching'],
-                    ['👨‍🏫', 'MENTORING', 'Building connection through experienced guidance.', 'dark', 'mentoring'],
-                    ['🚶‍♀️', 'WALKS, WELLNESS & MORE', 'Outdoor healing and mindfulness activities.', 'light', 'walks-wellness-more'],
-                    ['🎓', 'COURSES', 'Structured learning for mental well-being.', 'dark', 'courses'],
-                    ['💻', 'DIGITAL PRODUCTS', 'Tools and resources for your healing journey.', 'light', 'digital-products'],
-                    ['🛠️', 'WORKSHOPS', 'Interactive community sessions for growth.', 'dark', 'workshops'],
+                    ['🤝', 'JAB WE TALK', 'One-on-one empathetic listening sessions.', 'jab-we-talk'],
+                    ['🌱', 'LIFE COACHING', 'Personalized guidance for your life goals.', 'life-coaching'],
+                    ['👨‍🏫', 'MENTORING', 'Building connection through experienced guidance.', 'mentoring'],
+                    ['🚶‍♀️', 'WALKS, WELLNESS & MORE', 'Outdoor healing and mindfulness activities.', 'walks-wellness-more'],
+                    ['🎓', 'COURSES', 'Structured learning for mental well-being.', 'courses'],
+                    ['💻', 'DIGITAL PRODUCTS', 'Tools and resources for your healing journey.', 'digital-products'],
+                    ['🛠️', 'WORKSHOPS', 'Interactive community sessions for growth.', 'workshops'],
                 ];
-                foreach ($services as [$icon, $title, $desc, $theme, $slug]):
+                foreach ($services as [$icon, $title, $desc, $slug]):
                     ?>
-                    <div class="service-bubble bubble-<?php echo $theme; ?>">
+                    <div class="service-bubble">
                         <a href="<?php echo home_url('/' . $slug); ?>" class="bubble-link-wrapper">
                             <div class="bubble-content">
                                 <div class="bubble-icon"><?php echo $icon; ?></div>

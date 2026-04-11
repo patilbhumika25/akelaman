@@ -1644,40 +1644,33 @@ p {
     border-radius: 50%;
 }
 
-/* Dark Theme Bubble */
-.bubble-dark {
-    background-color: var(--accent-orange); /* Branded Brown */
+/* Alternating Bubble Themes */
+.service-bubble:nth-child(odd) {
+    background-color: var(--accent-orange); /* Orange */
     border: 1px solid rgba(255,255,255,0.1);
 }
 
-.bubble-dark .bubble-content {
+.service-bubble:nth-child(odd) .bubble-content,
+.service-bubble:nth-child(odd) .bubble-title {
     color: #fff;
 }
 
-.bubble-dark .bubble-title {
-    color: #fff;
-}
-
-.bubble-dark .bubble-link {
+.service-bubble:nth-child(odd) .bubble-link {
     color: rgba(255,255,255,0.9);
     border-bottom-color: rgba(255,255,255,0.3);
 }
 
-/* Light Theme Bubble */
-.bubble-light {
-    background-color: #fffef0; /* Cream */
+.service-bubble:nth-child(even) {
+    background-color: #fffef0; /* Cream/White */
     border: 2px solid rgba(154, 52, 18, 0.15);
 }
 
-.bubble-light .bubble-content {
+.service-bubble:nth-child(even) .bubble-content,
+.service-bubble:nth-child(even) .bubble-title {
     color: var(--accent-orange);
 }
 
-.bubble-light .bubble-title {
-    color: var(--accent-orange);
-}
-
-.bubble-light .bubble-link {
+.service-bubble:nth-child(even) .bubble-link {
     color: var(--accent-orange);
     border-bottom-color: rgba(154, 52, 18, 0.3);
 }
