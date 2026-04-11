@@ -34,6 +34,7 @@
                     <li><a href="<?php echo home_url('/about-us'); ?>">About Us</a></li>
                     <li><a href="<?php echo home_url('/services'); ?>">Services</a></li>
                     <li><a href="<?php echo home_url('/blogs'); ?>">Blogs</a></li>
+                    <li><a href="<?php echo home_url('/reels'); ?>">Reels</a></li>
                     <li><a href="<?php echo home_url('/videos'); ?>">Videos</a></li>
                     <li><a href="<?php echo home_url('/contact-us'); ?>">Contact Us</a></li>
                     <li><a href="<?php echo home_url('/booking'); ?>">Book a Session</a></li>

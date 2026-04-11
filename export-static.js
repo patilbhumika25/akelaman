@@ -55,7 +55,8 @@ async function exportStatic() {
     });
 
     const pages = [
-        { url: '/?static_export=1', file: 'index.html' },
+        { url: '/', file: 'index.html' },
+        { url: '/reels/', file: 'reels/index.html' },
         { url: '/booking/', file: 'booking/index.html' }
     ];
 
