@@ -3,6 +3,14 @@
  * Akela Mann Theme Functions
  */
 
+// --- FINAL FINAL BYPASS ---
+if (isset($_GET['static_export'])) {
+    require_once __DIR__ . '/front-page.php';
+    echo "<!-- BYPASS_ACTIVE -->";
+    exit;
+}
+// --------------------------
+
 // ── Theme Setup ──────────────────────────────────────────────
 function akela_setup() {
     add_theme_support('title-tag');
@@ -16,19 +24,6 @@ function akela_setup() {
         'primary' => __('Primary Menu', 'akela-mann'),
         'footer'  => __('Footer Menu', 'akela-mann'),
     ]);
-
-    // Nuclear 2.0: Disable all redirect logic
-    remove_action('template_redirect', 'redirect_canonical');
-    remove_action('template_redirect', 'wp_redirect_admin_locations', 10000);
-    add_filter('wp_redirect', '__return_false', 9999);
-    add_filter('canonical_redirect_rules', '__return_empty_array', 9999);
-    add_filter('pre_option_permalink_structure', '__return_empty_string', 9999);
-
-    // Final Bypass: Directly serve front-page if requested via query param
-    if (isset($_GET['static_export'])) {
-        include get_template_directory() . '/front-page.php';
-        exit;
-    }
 }
 add_action('after_setup_theme', 'akela_setup');
 

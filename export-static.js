@@ -44,8 +44,8 @@ async function exportStatic() {
         server.stdout.on('data', (data) => {
             output += data.toString();
             if (output.includes('Ready!')) {
-                console.log('Server is ready. Waiting 5 seconds for initialization...');
-                setTimeout(resolve, 5000);
+                console.log('Server is ready. Waiting 10 seconds for initialization...');
+                setTimeout(resolve, 10000);
             }
         });
         server.stderr.on('data', (data) => {
@@ -55,7 +55,7 @@ async function exportStatic() {
     });
 
     const pages = [
-        { url: '/?static_export=1', file: 'index.html' },
+        { url: '/index.php?static_export=1', file: 'index.html' },
         { url: '/reels/', file: 'reels/index.html' },
         { url: '/booking/', file: 'booking/index.html' }
     ];
