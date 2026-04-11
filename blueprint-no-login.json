@@ -10,7 +10,10 @@
             "step": "setSiteOptions",
             "options": {
                 "home": "http://127.0.0.1:9500",
-                "siteurl": "http://127.0.0.1:9500"
+                "siteurl": "http://127.0.0.1:9500",
+                "permalink_structure": "/%postname%/",
+                "blogname": "Akela Mann",
+                "blogdescription": "Healing Services for a Lonely Mind"
             }
         }
     ]

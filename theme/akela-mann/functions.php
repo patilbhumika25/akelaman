@@ -17,8 +17,10 @@ function akela_setup() {
         'footer'  => __('Footer Menu', 'akela-mann'),
     ]);
 
-    // Disable canonical redirects to prevent loops during crawling
+    // Disable all redirects to prevent loops during crawling
     remove_action('template_redirect', 'redirect_canonical');
+    remove_action('template_redirect', 'wp_redirect_admin_locations', 1000);
+    add_filter('wp_redirect', '__return_false', 9999);
 }
 add_action('after_setup_theme', 'akela_setup');
 

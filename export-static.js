@@ -44,8 +44,8 @@ async function exportStatic() {
         server.stdout.on('data', (data) => {
             output += data.toString();
             if (output.includes('Ready!')) {
-                console.log('Server is ready.');
-                resolve();
+                console.log('Server is ready. Waiting 5 seconds for initialization...');
+                setTimeout(resolve, 5000);
             }
         });
         server.stderr.on('data', (data) => {
