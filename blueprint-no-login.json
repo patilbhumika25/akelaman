@@ -5,6 +5,13 @@
         {
             "step": "activateTheme",
             "themeFolderName": "akela-mann"
+        },
+        {
+            "step": "setSiteOptions",
+            "options": {
+                "home": "http://127.0.0.1:9500",
+                "siteurl": "http://127.0.0.1:9500"
+            }
         }
     ]
 }

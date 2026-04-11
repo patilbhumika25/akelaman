@@ -16,6 +16,9 @@ function akela_setup() {
         'primary' => __('Primary Menu', 'akela-mann'),
         'footer'  => __('Footer Menu', 'akela-mann'),
     ]);
+
+    // Disable canonical redirects to prevent loops during crawling
+    remove_action('template_redirect', 'redirect_canonical');
 }
 add_action('after_setup_theme', 'akela_setup');
 
