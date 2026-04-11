@@ -1,0 +1,6 @@
+[build]
+  command = "npm install && node export-static.js"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
