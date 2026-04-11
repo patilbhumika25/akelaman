@@ -30,7 +30,7 @@ async function exportStatic() {
     console.log('--- Starting WordPress Server ---');
     
     // Start server
-    const server = spawn('npx.cmd', [
+    const server = spawn(process.platform === 'win32' ? 'npx.cmd' : 'npx', [
         '-y', '@wp-playground/cli', 'server', 
         '--port', port.toString(),
         '--blueprint', blueprint,
