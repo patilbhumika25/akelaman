@@ -68,6 +68,7 @@ Tags: loneliness, wellness, mental-health, dark, moody, community
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
@@ -77,6 +78,7 @@ body {
     font-size: 16px;
     line-height: 1.7;
     overflow-x: hidden;
+    width: 100%;
 }
 
 img {
