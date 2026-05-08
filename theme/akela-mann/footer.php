@@ -26,17 +26,6 @@
                 </div>
             </div>
 
-            <!-- Services -->
-            <div class="footer-col">
-                <h4>Our Services</h4>
-                <ul>
-                    <li><a href="javascript:void(0)" style="cursor: default;">Talking Sessions</a></li>
-                    <li><a href="javascript:void(0)" style="cursor: default;">Support Groups</a></li>
-                    <li><a href="javascript:void(0)" style="cursor: default;">Online Workshops</a></li>
-                    <li><a href="javascript:void(0)" style="cursor: default;">Community Events</a></li>
-                </ul>
-            </div>
-
             <!-- Quick Links -->
             <div class="footer-col">
                 <h4>Quick Links</h4>
@@ -52,6 +41,17 @@
                 </ul>
             </div>
 
+            <!-- Services -->
+            <div class="footer-col">
+                <h4>Our Services</h4>
+                <ul>
+                    <li><a href="javascript:void(0)" style="cursor: default;">Talking Sessions</a></li>
+                    <li><a href="javascript:void(0)" style="cursor: default;">Support Groups</a></li>
+                    <li><a href="javascript:void(0)" style="cursor: default;">Online Workshops</a></li>
+                    <li><a href="javascript:void(0)" style="cursor: default;">Community Events</a></li>
+                </ul>
+            </div>
+
             <!-- Contact -->
             <div class="footer-col">
                 <h4>Contact Us</h4>
@@ -60,13 +60,15 @@
                     <li>📧 <a href="mailto:<?php echo akela_mod('akela_email', 'hello@akelamann.com'); ?>"><?php echo akela_mod('akela_email', 'hello@akelamann.com'); ?></a></li>
                     <li>📍 <?php echo akela_mod('akela_address', 'Mumbai, India'); ?></li>
                 </ul>
-                <div style="margin-top:20px;">
-                    <h4>Hours</h4>
-                    <ul>
-                        <li>Mon–Fri: 9:00 am – 5:00 pm</li>
-                        <li>Sat–Sun: Closed</li>
-                    </ul>
-                </div>
+            </div>
+
+            <!-- Hours -->
+            <div class="footer-col">
+                <h4>Hours</h4>
+                <ul>
+                    <li>Mon–Fri: 9:00 am – 5:00 pm</li>
+                    <li>Sat–Sun: Closed</li>
+                </ul>
             </div>
         </div>
 
