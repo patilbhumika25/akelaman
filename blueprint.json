@@ -5,6 +5,12 @@
         {
             "step": "activateTheme",
             "themeFolderName": "akela-mann"
+        },
+        {
+            "step": "setSiteOptions",
+            "options": {
+                "permalink_structure": "/%postname%/"
+            }
         }
     ]
 }
