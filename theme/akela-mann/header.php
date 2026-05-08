@@ -31,7 +31,7 @@
                         <li><a href="<?php echo home_url('/#services-section'); ?>">Services</a></li>
                         <li><a href="<?php echo home_url('/#blog-section'); ?>">Blogs</a></li>
 
-                        <li><a href="<?php echo home_url('/videos'); ?>">Videos</a></li>
+                        <li><a href="javascript:void(0)" style="cursor: default;">Videos</a></li>
                         <li><a href="<?php echo home_url('/#site-footer'); ?>">Contact</a></li>
                     </ul>
                 <?php }
