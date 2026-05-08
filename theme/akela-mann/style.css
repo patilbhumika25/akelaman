@@ -1375,7 +1375,8 @@ p {
 
 @media (max-width: 991px) {
     .premium-booking-grid {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column-reverse;
         gap: 40px;
     }
     
