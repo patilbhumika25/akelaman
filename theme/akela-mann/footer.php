@@ -31,13 +31,13 @@
                 <h4>Quick Links</h4>
                 <ul>
                     <li><a href="<?php echo home_url('/'); ?>">Home</a></li>
-                    <li><a href="<?php echo home_url('/#testimonials-section'); ?>">About Us</a></li>
-                    <li><a href="<?php echo home_url('/#services-section'); ?>">Services</a></li>
-                    <li><a href="<?php echo home_url('/#blog-section'); ?>">Blogs</a></li>
+                    <li><a href="/#testimonials-section">About Us</a></li>
+                    <li><a href="/#services-section">Services</a></li>
+                    <li><a href="/#blog-section">Blogs</a></li>
 
                     <li><a href="javascript:void(0)" style="cursor: default;">Videos</a></li>
-                    <li><a href="<?php echo home_url('/#site-footer'); ?>">Contact Us</a></li>
-                    <li><a href="<?php echo home_url('/#booking-section'); ?>">Book a Session</a></li>
+                    <li><a href="/#site-footer">Contact Us</a></li>
+                    <li><a href="/#booking-section">Book a Session</a></li>
                 </ul>
             </div>
 
