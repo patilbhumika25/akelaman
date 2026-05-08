@@ -35,7 +35,7 @@
         <div class="hero-btns slide-up-anim" style="animation-delay: 0.7s;">
             <a href="<?php echo home_url('/#booking-section'); ?>" class="btn btn-primary pulsing-btn">Book a Free
                 Session ✨</a>
-            <a href="<?php echo home_url('/about-us'); ?>" class="btn btn-outline">Our Story →</a>
+            <a href="javascript:void(0)" class="btn btn-outline" style="cursor: default;">Our Story →</a>
         </div>
     </div>
 
