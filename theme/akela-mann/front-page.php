@@ -393,24 +393,28 @@
                                     background: #f0faf4;
                                     border: 1px solid #b2dfcb;
                                     border-radius: 8px;
-                                    padding: 32px;
+                                    padding: 24px;
                                     text-align: center;
                                     animation: fadeInUp 0.4s ease;
                                     box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+                                    min-height: 280px; /* Match approximate form height */
+                                    display: flex;
+                                    flex-direction: column;
+                                    justify-content: center;
                                 ">
-                                    <div style="font-size:2.5rem;margin-bottom:12px;">✨</div>
-                                    <h3 style="font-family:inherit;font-size:1.6rem;color:#1a6641;margin-bottom:8px;font-weight:600;">
+                                    <div style="font-size:2rem;margin-bottom:8px;">✨</div>
+                                    <h3 style="font-family:inherit;font-size:1.4rem;color:#1a6641;margin-bottom:4px;font-weight:600;">
                                         Booking Confirmed!
                                     </h3>
-                                    <p style="color:#2d7a55;font-size:1rem;margin-bottom:20px;line-height:1.5;">
+                                    <p style="color:#2d7a55;font-size:0.9rem;margin-bottom:16px;line-height:1.4;">
                                         Thanks <strong>${userName}</strong>, your session is scheduled for:<br>
-                                        <span style="font-weight:700; display:block; margin-top:8px; font-size:1.1rem;">📅 ${bookingDate} | 🕐 ${bookingTime}</span>
+                                        <span style="font-weight:700; display:block; margin-top:4px; font-size:1rem;">📅 ${bookingDate} | 🕐 ${bookingTime}</span>
                                     </p>
-                                    <div style="background:#fff; border:1px dashed #b2dfcb; padding:16px; border-radius:6px; margin-bottom:24px; text-align:left;">
-                                        <p style="font-size:0.75rem; color:#1a6641; font-weight:700; text-transform:uppercase; margin-bottom:6px; letter-spacing:1px;">Google Meet Link</p>
-                                        <a href="${meetLink}" target="_blank" style="font-size:0.9rem; color:#1a6641; text-decoration:underline; font-family:monospace; word-break:break-all; font-weight:500;">${meetLink}</a>
+                                    <div style="background:#fff; border:1px dashed #b2dfcb; padding:12px; border-radius:6px; margin-bottom:16px; text-align:left;">
+                                        <p style="font-size:0.65rem; color:#1a6641; font-weight:700; text-transform:uppercase; margin-bottom:4px; letter-spacing:1px;">Google Meet Link</p>
+                                        <a href="${meetLink}" target="_blank" style="font-size:0.8rem; color:#1a6641; text-decoration:underline; font-family:monospace; word-break:break-all; font-weight:500;">${meetLink}</a>
                                     </div>
-                                    <button onclick="window.location.reload()" class="btn btn-primary" style="width:100%; padding:14px; font-size:0.95rem; border-radius:4px; cursor:pointer;">
+                                    <button onclick="window.location.reload()" class="btn btn-primary" style="width:100%; padding:12px; font-size:0.9rem; border-radius:4px; cursor:pointer;">
                                         Book Another Session
                                     </button>
                                 </div>`;
