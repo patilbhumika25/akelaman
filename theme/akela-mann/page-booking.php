@@ -92,7 +92,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     const meetLink = d.data.meet_link;
 
                     // Replace form with success card
-                    form.style.display = 'none';
                     if (prompt) prompt.style.display = 'none';
 
                     const successDiv = document.createElement('div');
@@ -102,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             background: #f0faf4;
                             border: 1.5px solid #b2dfcb;
                             border-radius: 4px;
-                            padding: 32px;
+                            padding: 24px;
                             text-align: center;
                             animation: fadeInUp 0.4s ease;
                             display: flex;
@@ -110,25 +109,24 @@ document.addEventListener('DOMContentLoaded', function() {
                             justify-content: center;
                             align-items: center;
                             width: 100%;
-                            margin-top: 24px;
                         ">
-                            <div style="font-size:3rem;margin-bottom:12px;">✨</div>
-                            <h3 style="font-family:var(--font-heading);font-size:1.8rem;color:#1a6641;margin-bottom:8px;">
+                            <div style="font-size:2rem;margin-bottom:8px;">✨</div>
+                            <h3 style="font-family:var(--font-heading);font-size:1.4rem;color:#1a6641;margin-bottom:4px;">
                                 Booking Confirmed!
                             </h3>
-                            <p style="color:#2d7a55;font-size:1rem;margin-bottom:20px;">
+                            <p style="color:#2d7a55;font-size:0.9rem;margin-bottom:12px;">
                                 Thanks <strong>${userName}</strong>, your session is scheduled for:<br>
                                 <span style="font-weight:600;">📅 ${bookingDate} | 🕐 ${bookingTime}</span>
                             </p>
-                            <div style="background:#fff; border:1px dashed #b2dfcb; padding:20px; border-radius:8px; margin-bottom:24px; width:100%;">
-                                <p style="font-size:0.8rem; color:#1a6641; font-weight:700; text-transform:uppercase; margin-bottom:8px; letter-spacing:1px;">Google Meet Link</p>
-                                <a href="${meetLink}" target="_blank" style="font-size:1.1rem; color:#1a6641; text-decoration:none; font-family:monospace; word-break:break-all;">${meetLink}</a>
+                            <div style="background:#fff; border:1px dashed #b2dfcb; padding:12px; border-radius:4px; margin-bottom:16px; width:100%;">
+                                <p style="font-size:0.7rem; color:#1a6641; font-weight:700; text-transform:uppercase; margin-bottom:4px;">Google Meet Link</p>
+                                <a href="${meetLink}" target="_blank" style="font-size:0.85rem; color:#1a6641; text-decoration:none; font-family:monospace; word-break:break-all;">${meetLink}</a>
                             </div>
-                            <button onclick="window.location.reload()" class="btn btn-outline" style="padding:12px 24px; border-color: #1a6641; color: #1a6641;">
+                            <button onclick="window.location.reload()" class="btn btn-outline" style="padding:8px 16px; font-size:0.85rem; border-color: #1a6641; color: #1a6641;">
                                 Book Another Session
                             </button>
                         </div>`;
-                    form.parentNode.appendChild(successDiv);
+                    form.replaceWith(successDiv);
                 } else { 
                     btn.textContent = 'Confirm Appointment ✨'; btn.disabled = false; 
                     alert(d.data || 'Error. Please try again.'); 

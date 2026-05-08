@@ -67,7 +67,7 @@ async function exportStatic() {
         { url: '/courses/', file: 'courses/index.html' },
         { url: '/digital-products/', file: 'digital-products/index.html' },
         { url: '/workshops/', file: 'workshops/index.html' },
-        // Blog Posts (Clean URLs)
+        // Blog Posts
         { url: '/loneliness-in-2025/', file: 'loneliness-in-2025/index.html' },
         { url: '/khushi-happiness/', file: 'khushi-happiness/index.html' },
         { url: '/i-am-bored-of-life/', file: 'i-am-bored-of-life/index.html' },
