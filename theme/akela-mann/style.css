@@ -1378,6 +1378,11 @@ p {
         display: flex;
         flex-direction: column-reverse;
         gap: 32px;
+        width: 100%;
+    }
+
+    .premium-booking-grid > div {
+        width: 100%;
     }
     
     .booking-copy h1, .booking-copy h2 {
