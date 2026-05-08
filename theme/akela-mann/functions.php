@@ -22,7 +22,7 @@ function akela_setup() {
     add_theme_support('html5', ['search-form','comment-form','comment-list','gallery','caption']);
     add_theme_support('woocommerce');
     add_image_size('blog-thumb', 800, 500, true);
-    add_image_size('reel-thumb', 400, 711, true);
+
 
     register_nav_menus([
         'primary' => __('Primary Menu', 'akela-mann'),
@@ -41,11 +41,7 @@ add_action('after_setup_theme', 'akela_setup');
 // ── Auto-create Pages ─────────────────────────────────────────
 function akela_create_pages() {
     $pages = [
-        'reels' => [
-            'title'   => 'Reels',
-            'content' => '',
-            'template'=> 'page-reels.php'
-        ],
+
         'booking' => [
             'title'   => 'Booking',
             'content' => '',
@@ -129,25 +125,13 @@ function akela_enqueue() {
     ]);
 
     wp_localize_script('akela-main', 'AkelaVars', [
-        'home_url' => home_url('/'),
+        'home_url'  => home_url('/'),
+        'meet_link' => akela_mod('akela_meet_link', 'https://meet.google.com/new'),
     ]);
 }
 add_action('wp_enqueue_scripts', 'akela_enqueue');
 
-// ── Custom Post Types ──────────────────────────────────────────
-
-// Reels CPT
 function akela_register_cpts() {
-    register_post_type('reel', [
-        'labels'       => ['name' => 'Reels', 'singular_name' => 'Reel', 'menu_name' => 'Reels'],
-        'public'       => true,
-        'has_archive'  => true,
-        'rewrite'      => ['slug' => 'reels'],
-        'supports'     => ['title', 'thumbnail', 'custom-fields'],
-        'menu_icon'    => 'dashicons-video-alt3',
-        'show_in_rest' => true,
-    ]);
-
     // Videos CPT
     register_post_type('video', [
         'labels'       => ['name' => 'Videos', 'singular_name' => 'Video', 'menu_name' => 'Videos'],
@@ -183,23 +167,15 @@ add_action('init', 'akela_register_cpts');
 
 // ── Custom Meta Boxes ──────────────────────────────────────────
 function akela_add_meta_boxes() {
-    add_meta_box('reel_url', 'Reel / Video URL', 'akela_reel_url_cb', ['reel', 'video'], 'normal', 'high');
+    add_meta_box('reel_url', 'Video URL', 'akela_reel_url_cb', ['video'], 'normal', 'high');
     add_meta_box('akela_post_image', 'Blog Post Image', 'akela_render_post_image_box', 'post', 'side');
     add_meta_box('akela_booking_meta', 'Booking Details', 'akela_render_booking_box', 'booking', 'normal');
-    add_meta_box('akela_reel_meta', 'Reel Video URL', 'akela_render_reel_box', 'reel', 'normal');
+
     add_meta_box('akela_testimonial_meta', 'Testimonial Details', 'akela_render_testimonial_box', 'testimonial', 'normal');
 }
 add_action('add_meta_boxes', 'akela_add_meta_boxes');
 
-function akela_render_reel_box($post) {
-    $url = get_post_meta($post->ID, '_embed_url', true);
-    $dur = get_post_meta($post->ID, '_duration', true);
-    echo '<p><label><strong>Embed URL (YouTube/Instagram):</strong></label><br>';
-    echo '<input type="url" name="embed_url" value="' . esc_attr($url) . '" style="width:100%;padding:8px;" /></p>';
-    echo '<p><label><strong>Duration (e.g. 1:23):</strong></label><br>';
-    echo '<input type="text" name="duration" value="' . esc_attr($dur) . '" style="width:200px;padding:8px;" /></p>';
-    wp_nonce_field('akela_save_meta', 'akela_meta_nonce');
-}
+
 
 function akela_render_booking_box($post) {
     $fields = ['_client_name','_client_email','_client_phone','_session_type','_session_date','_session_time','_status'];
@@ -295,8 +271,19 @@ function akela_handle_booking() {
         foreach ($fields as $f) {
             update_post_meta($post_id, "_client_$f", sanitize_text_field($_POST[$f] ?? ''));
         }
+        
+        // Generate a unique Google Meet link for this booking
+        $chars = 'abcdefghijklmnopqrstuvwxyz';
+        $code = substr(str_shuffle($chars), 0, 3) . '-' . substr(str_shuffle($chars), 0, 4) . '-' . substr(str_shuffle($chars), 0, 3);
+        $meet_link = "https://meet.google.com/" . $code;
+        update_post_meta($post_id, '_meeting_link', $meet_link);
+
         update_post_meta($post_id, '_status', 'Pending');
-        wp_send_json_success(['message' => 'Booking confirmed!', 'id' => $post_id]);
+        wp_send_json_success([
+            'message' => 'Booking confirmed!', 
+            'id' => $post_id,
+            'meet_link' => $meet_link
+        ]);
     }
     wp_send_json_error('Could not save booking');
 }
@@ -338,8 +325,8 @@ function akela_customizer($wp_customize) {
     $wp_customize->add_section('akela_options', ['title' => 'Akela Mann Options', 'priority' => 30]);
 
     $settings = [
-        ['akela_phone',       'Phone Number',         '+91 98338 48425'],
-        ['akela_whatsapp',    'WhatsApp Number',      '919833848425'],
+        ['akela_phone',       'Phone Number',         '+91 98925 28084'],
+        ['akela_whatsapp',    'WhatsApp Number',      '919892528084'],
         ['akela_email',       'Email Address',        'hello@akelamann.com'],
         ['akela_address',     'Address',              'Mumbai, India'],
         ['akela_hero_tagline','Hero Tagline',          'You Are Not Alone'],
@@ -348,6 +335,7 @@ function akela_customizer($wp_customize) {
         ['akela_youtube',     'YouTube URL',           ''],
         ['akela_facebook',    'Facebook URL',          ''],
         ['akela_twitter',     'Twitter/X URL',         ''],
+        ['akela_meet_link',   'Google Meet Link',      'https://meet.google.com/new'],
     ];
 
     foreach ($settings as [$id, $label, $default]) {
@@ -391,7 +379,7 @@ function akela_dashboard_page() {
     $bookings = wp_count_posts('booking')->publish ?? 0;
     $posts    = wp_count_posts('post')->publish ?? 0;
     $videos   = wp_count_posts('video')->publish ?? 0;
-    $reels    = wp_count_posts('reel')->publish ?? 0;
+    $reels    = 0;
     $messages = count(get_option('akela_contact_submissions', []));
     ?>
     <div class="wrap">
@@ -402,7 +390,7 @@ function akela_dashboard_page() {
                 ['📅 Bookings', $bookings, 'akela-bookings'],
                 ['📝 Blog Posts', $posts, 'edit.php'],
                 ['🎬 Videos', $videos, 'edit.php?post_type=video'],
-                ['📲 Reels', $reels, 'edit.php?post_type=reel'],
+
                 ['💬 Messages', $messages, 'akela-messages'],
             ];
             foreach ($stats as [$label, $count, $link]):
@@ -419,7 +407,7 @@ function akela_dashboard_page() {
             <p>
                 <a href="<?= admin_url('post-new.php') ?>" class="button button-primary">+ New Blog Post</a>&nbsp;
                 <a href="<?= admin_url('post-new.php?post_type=video') ?>" class="button">+ Add Video</a>&nbsp;
-                <a href="<?= admin_url('post-new.php?post_type=reel') ?>" class="button">+ Add Reel</a>&nbsp;
+
                 <a href="<?= admin_url('post-new.php?post_type=testimonial') ?>" class="button">+ Add Testimonial</a>
             </p>
         </div>
@@ -620,4 +608,132 @@ function akela_create_blog_posts() {
         }
     }
 }
+// ── Helper: Get Service Details ──────────────────────────────
+function akela_get_service_details($slug) {
+    $data = [
+        'jab-we-talk' => [
+            'tag' => 'Premium Service',
+            'benefits' => [
+                'One-on-one personalized session',
+                '100% confidential and safe space',
+                'Empathetic and non-judgmental listening',
+                'Compassionate guidance & support',
+                'Flexible scheduling that fits your life'
+            ],
+            'values' => [
+                ['🛡️', 'Safe & Secure', 'Your privacy is our top priority. Every word shared stays protected.'],
+                ['❤️', 'Deep Empathy', 'We understand your unique journey with genuine care and feeling.'],
+                ['🌱', 'Growth Hub', 'Helping you find the inner strength to flourish and thrive again.']
+            ]
+        ],
+        'support-groups' => [
+            'tag' => 'Community Healing',
+            'benefits' => [
+                'Group healing with shared experiences',
+                'Professionally moderated discussions',
+                'Safe and inclusive environment',
+                'Build lasting community connections',
+                'Regular weekly peer support'
+            ],
+            'values' => [
+                ['👥', 'Shared Wisdom', 'Learn from the collective experiences of others in similar paths.'],
+                ['🤝', 'Mutual Respect', 'An environment built on understanding and non-judgmental support.'],
+                ['🏘️', 'True Belonging', 'Discover a community where you are always seen and heard.']
+            ]
+        ],
+        'life-coaching' => [
+            'tag' => 'Personal Growth',
+            'benefits' => [
+                'Goal-oriented personal discovery',
+                'Actionable strategies for success',
+                'Mindset and resilience building',
+                'Personal accountability partner',
+                'Focused sessions for life transitions'
+            ],
+            'values' => [
+                ['🎯', 'Clarity Focused', 'Find your path and purpose with clear, actionable insights.'],
+                ['🚀', 'Resilience First', 'Build the inner strength to overcome any life obstacle.'],
+                ['🔥', 'Purposeful Action', 'Move from stagnation to momentum with practical guidance.']
+            ]
+        ],
+        'mentoring' => [
+            'tag' => 'Expert Guidance',
+            'benefits' => [
+                'Direct access to experienced wisdom',
+                'Long-term personal development',
+                'Skill building and expert insight',
+                'Strategic career and life advice',
+                'Consistent 1:1 mentorship'
+            ],
+            'values' => [
+                ['📜', 'Legacy of Wisdom', 'Benefit from years of practical experience and life lessons.'],
+                ['📈', 'Focused Growth', 'Accelerate your development with targeted guidance.'],
+                ['💎', 'Trusted Counsel', 'A mentor who is dedicated to your long-term success.']
+            ]
+        ],
+        'workshops' => [
+            'tag' => 'Collective Learning',
+            'benefits' => [
+                'Interactive group learning sessions',
+                'Practical tools for daily life',
+                'Collaborative activities and tasks',
+                'Expert-led specialized topics',
+                'Resource materials and templates'
+            ],
+            'values' => [
+                ['🛠️', 'Practical Skills', 'Leave with real tools you can apply to your life immediately.'],
+                ['💡', 'Expert Insights', 'Gain unique perspectives from leaders in their fields.'],
+                ['🎭', 'Interactive Experience', 'Engage in a dynamic learning environment that sticks.']
+            ]
+        ],
+        'walks-wellness-more' => [
+            'tag' => 'Holistic Healing',
+            'benefits' => [
+                'Connection with nature and outdoors',
+                'Mindful physical movement & health',
+                'Low-pressure social interactions',
+                'Stress reduction through movement',
+                'Holistic well-being activities'
+            ],
+            'values' => [
+                ['🌿', 'Natural Balance', 'Find peace and grounding through connection with nature.'],
+                ['🏃', 'Active Connection', 'Improve your mental health through mindful physical activity.'],
+                ['✨', 'Holistic Health', 'A complete approach to emotional and physical well-being.']
+            ]
+        ],
+        'courses' => [
+            'tag' => 'Educational Healing',
+            'benefits' => [
+                'Structured learning modules',
+                'Self-paced enlightenment journeys',
+                'Lifetime access to course materials',
+                'Practical exercises and assignments',
+                'Community forum discussion access'
+            ],
+            'values' => [
+                ['📚', 'Knowledge is Power', 'Deepen your understanding of your own mental landscapes.'],
+                ['🏗️', 'Structured Growth', 'Follow a proven path to emotional resilience and joy.'],
+                ['🌈', 'Holistic Learning', 'Integrating mind, body, and spirit into your education.']
+            ]
+        ],
+        'digital-products' => [
+            'tag' => 'Tools for Healing',
+            'benefits' => [
+                'Instant download and access',
+                'Expertly designed healing journals',
+                'Guided audio meditation sessions',
+                'Printable worksheets and planners',
+                'One-time purchase, lifetime use'
+            ],
+            'values' => [
+                ['📲', 'Healing at Fingertips', 'Access your support tools anytime, anywhere on any device.'],
+                ['💎', 'Quality Resources', 'Curated materials designed by wellness experts.'],
+                ['🔋', 'Empowering Self-Care', 'Take charge of your journey with practical, portable tools.']
+            ]
+        ]
+    ];
+
+    return $data[$slug] ?? $data['jab-we-talk']; // Fallback to jab-we-talk
+}
+
 add_action('init', 'akela_create_blog_posts');

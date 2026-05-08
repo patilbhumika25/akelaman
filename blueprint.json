@@ -3,11 +3,6 @@
     "landingPage": "/",
     "steps": [
         {
-            "step": "login",
-            "username": "admin",
-            "password": "password"
-        },
-        {
             "step": "activateTheme",
             "themeFolderName": "akela-mann"
         }

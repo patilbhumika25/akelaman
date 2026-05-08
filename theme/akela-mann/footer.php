@@ -22,7 +22,7 @@
                     <?php if ($tw = akela_mod('akela_twitter')): ?>
                     <a href="<?php echo esc_url($tw); ?>" class="social-icon" target="_blank" aria-label="Twitter">🐦</a>
                     <?php endif; ?>
-                    <a href="https://wa.me/<?php echo akela_mod('akela_whatsapp','919833848425'); ?>" class="social-icon" target="_blank" aria-label="WhatsApp">💬</a>
+                    <a href="https://wa.me/<?php echo akela_mod('akela_whatsapp','919892528084'); ?>" class="social-icon" target="_blank" aria-label="WhatsApp">💬</a>
                 </div>
             </div>
 
@@ -34,7 +34,7 @@
                     <li><a href="<?php echo home_url('/about-us'); ?>">About Us</a></li>
                     <li><a href="<?php echo home_url('/services'); ?>">Services</a></li>
                     <li><a href="<?php echo home_url('/blogs'); ?>">Blogs</a></li>
-                    <li><a href="<?php echo home_url('/reels'); ?>">Reels</a></li>
+
                     <li><a href="<?php echo home_url('/videos'); ?>">Videos</a></li>
                     <li><a href="<?php echo home_url('/contact-us'); ?>">Contact Us</a></li>
                     <li><a href="<?php echo home_url('/booking'); ?>">Book a Session</a></li>
@@ -56,7 +56,7 @@
             <div class="footer-col">
                 <h4>Contact Us</h4>
                 <ul>
-                    <li>📞 <a href="tel:<?php echo akela_mod('akela_phone', '+919833848425'); ?>"><?php echo akela_mod('akela_phone', '+91 98338 48425'); ?></a></li>
+                    <li>📞 <a href="tel:<?php echo akela_mod('akela_phone', '+919892528084'); ?>"><?php echo akela_mod('akela_phone', '+91 98925 28084'); ?></a></li>
                     <li>📧 <a href="mailto:<?php echo akela_mod('akela_email', 'hello@akelamann.com'); ?>"><?php echo akela_mod('akela_email', 'hello@akelamann.com'); ?></a></li>
                     <li>📍 <?php echo akela_mod('akela_address', 'Mumbai, India'); ?></li>
                 </ul>
@@ -79,7 +79,7 @@
 </footer>
 
 <!-- WhatsApp Float Button -->
-<a href="https://wa.me/<?php echo akela_mod('akela_whatsapp','919833848425'); ?>"
+<a href="https://wa.me/<?php echo akela_mod('akela_whatsapp','919892528084'); ?>"
    class="whatsapp-float"
    target="_blank"
    aria-label="Chat on WhatsApp"
@@ -95,11 +95,7 @@ body.no-scroll { overflow:hidden; }
 .dot.active { background:var(--accent-lavender,#c9b8e8);transform:scale(1.3); }
 </style>
 
-<!-- Reel Modal -->
-<div id="reel-modal">
-    <button id="modal-close">✕</button>
-    <iframe id="modal-video-frame" src="" frameborder="0" allow="autoplay;encrypted-media" allowfullscreen></iframe>
-</div>
+
 
 <?php wp_footer(); ?>
 </body>

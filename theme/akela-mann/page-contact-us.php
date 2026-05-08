@@ -59,11 +59,11 @@
                 <div class="glass-card floating-el" style="margin-bottom:24px; animation-delay: 1s;">
                     <h3 style="font-family:var(--font-heading);margin-bottom:20px;">📞 Better Still, Call Us</h3>
                     <p>We love talking! Real conversations heal loneliness.</p>
-                    <a href="tel:<?php echo akela_mod('akela_phone','+919833848425'); ?>" style="font-size:1.5rem;font-family:'Playfair Display',serif;color:var(--accent-lavender);">
-                        <?php echo akela_mod('akela_phone', '+91 98338 48425'); ?>
+                    <a href="tel:<?php echo akela_mod('akela_phone','+919892528084'); ?>" style="font-size:1.5rem;font-family:'Playfair Display',serif;color:var(--accent-lavender);">
+                        <?php echo akela_mod('akela_phone', '+91 98925 28084'); ?>
                     </a>
                     <div style="margin-top:20px;">
-                        <a href="https://wa.me/<?php echo akela_mod('akela_whatsapp','919833848425'); ?>" class="btn btn-outline" target="_blank" style="width:100%;justify-content:center;">💬 Message on WhatsApp</a>
+                        <a href="https://wa.me/<?php echo akela_mod('akela_whatsapp','919892528084'); ?>" class="btn btn-outline" target="_blank" style="width:100%;justify-content:center;">💬 Message on WhatsApp</a>
                     </div>
                 </div>
 

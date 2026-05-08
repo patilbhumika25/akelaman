@@ -86,7 +86,11 @@ document.addEventListener('DOMContentLoaded', function() {
         fetch('<?php echo admin_url("admin-ajax.php"); ?>', {method:'POST', body:fd})
             .then(r=>r.json()).then(d=>{
                 if(d.success){
-                    window.location.href = '<?php echo home_url("/booking-success"); ?>';
+                    const name = encodeURIComponent(fd.get('name'));
+                    const date = encodeURIComponent(fd.get('session_date'));
+                    const time = encodeURIComponent(fd.get('session_time'));
+                    const meetLink = encodeURIComponent(d.data.meet_link);
+                    window.location.href = `<?php echo home_url("/booking-success"); ?>?name=${name}&date=${date}&time=${time}&meet_link=${meetLink}`;
                 } else { 
                     btn.textContent = 'Confirm Appointment ✨'; btn.disabled = false; 
                     alert(d.data || 'Error. Please try again.'); 

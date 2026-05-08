@@ -705,207 +705,6 @@ p {
 }
 
 /* ============================================================
-   REELS GRID
-   ============================================================ */
-.reels-grid {
-    display: grid;
-    /* On large screens, default to 5 columns matching the 5 reels, on smaller it will wrap naturally */
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 16px;
-}
-
-.reel-item {
-    aspect-ratio: 9/16;
-    border-radius: var(--radius);
-    overflow: hidden;
-    position: relative;
-    cursor: pointer;
-    border: 1px solid var(--border-glow);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.reel-item img.reel-bg-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: var(--transition);
-}
-
-.reel-item:hover img.reel-bg-img {
-    transform: scale(1.05);
-}
-
-/* Gradient overlay to make text pop */
-.reel-item::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 30%, transparent 100%);
-    pointer-events: none;
-    z-index: 1;
-}
-
-.reel-play {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: transparent;
-    transition: var(--transition);
-    z-index: 2;
-    opacity: 0; /* Hide by default, show on hover */
-}
-
-.reel-item:hover .reel-play {
-    opacity: 1;
-    background: rgba(10, 10, 26, 0.3);
-}
-
-.reel-play-btn {
-    width: 56px;
-    height: 56px;
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(4px);
-    border: 1px solid rgba(255,255,255,0.4);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    color: #fff;
-    transition: var(--transition);
-}
-
-.reel-item:hover .reel-play-btn {
-    transform: scale(1.1);
-    background: var(--accent-orange);
-    border-color: var(--accent-orange);
-}
-
-/* New Info Layer matching Photo 1 */
-.reel-info-layer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 16px 12px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    z-index: 3;
-}
-
-.reel-thumb-small {
-    width: 40px;
-    height: 48px;
-    border-radius: 6px;
-    object-fit: cover;
-    background: #fff;
-    padding: 2px;
-}
-
-.reel-info-text {
-    display: flex;
-    flex-direction: column;
-}
-
-.reel-title-sm {
-    color: #fff;
-    font-size: 0.9rem;
-    font-weight: 600;
-    line-height: 1.2;
-    margin-bottom: 2px;
-    text-shadow: 0 1px 3px rgba(0,0,0,0.8);
-}
-
-.reel-subtitle-sm {
-    color: #ccc;
-    font-size: 0.75rem;
-    font-weight: 500;
-}
-
-/* ============================================================
-   REEL MODAL (Video Only)
-   ============================================================ */
-.reel-modal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    background: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-}
-
-.reel-modal.active {
-    display: flex;
-    animation: fadeIn 0.3s ease;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-.reel-modal-container {
-    background: #000;
-    border-radius: 16px;
-    width: 100%;
-    max-width: 450px;
-    height: 85vh;
-    max-height: 800px;
-    display: flex;
-    overflow: hidden;
-    position: relative;
-    box-shadow: 0 24px 64px rgba(0,0,0,0.4);
-    transform: scale(0.95);
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.reel-modal.active .reel-modal-container {
-    transform: scale(1);
-}
-
-.reel-modal-close {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    width: 36px;
-    height: 36px;
-    background: rgba(255,255,255,0.2);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 10;
-    border: none;
-    font-size: 1.5rem;
-    color: #fff;
-    transition: background 0.2s;
-}
-
-.reel-modal-close:hover {
-    background: rgba(255,255,255,0.3);
-}
-
-.reel-modal-video {
-    flex: 1;
-    background: #000;
-    position: relative;
-}
-
-.reel-modal-video iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-}
-
-/* ============================================================
    VIDEO GRID
    ============================================================ */
 .videos-grid {
@@ -1364,7 +1163,7 @@ p {
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
     gap: 64px;
-    align-items: stretch;
+    align-items: flex-start;
 }
 
 .booking-copy {
@@ -1506,7 +1305,7 @@ p {
 
 /* Right Side Copy Styling */
 .booking-copy {
-    padding-top: 24px;
+    padding-top: 0;
 }
 
 .booking-category {
@@ -2072,61 +1871,5 @@ p {
 @media (max-width: 480px) {
     .blog-slide {
         min-width: 100%;
-    }
-}
-
-
-.blog-card-title a {
-    color: inherit;
-    text-decoration: none;
-}
-.blog-card-title a:hover {
-    color: var(--accent-orange);
-}
-
-/* ============================================================
-   REEL MODAL
-   ============================================================ */
-#reel-modal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    background: rgba(0, 0, 0, 0.95);
-    align-items: center;
-    justify-content: center;
-    backdrop-filter: blur(8px);
-}
-
-#modal-close {
-    position: absolute;
-    top: 24px;
-    right: 32px;
-    background: none;
-    border: none;
-    color: #fff;
-    font-size: 2.5rem;
-    cursor: pointer;
-    z-index: 10;
-    transition: transform 0.3s ease;
-}
-
-#modal-close:hover {
-    transform: rotate(90deg) scale(1.1);
-}
-
-#modal-video-frame {
-    width: 90vw;
-    max-width: 400px;
-    aspect-ratio: 9/16;
-    border-radius: 16px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-    background: #000;
-}
-
-@media (max-width: 480px) {
-    #modal-video-frame {
-        width: 85vw;
-        max-width: none;
     }
 }

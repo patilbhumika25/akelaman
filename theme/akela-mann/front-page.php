@@ -122,7 +122,7 @@
                     deserve more human connection. We answer that signal every day.</p>
                 <div style="display:flex;gap:16px;margin-top:32px;flex-wrap:wrap;">
                     <a href="<?php echo home_url('/about-us'); ?>" class="btn btn-primary">About Us</a>
-                    <a href="tel:<?php echo akela_mod('akela_phone', '09833848425'); ?>" class="btn btn-outline">📞 Call
+                    <a href="tel:<?php echo akela_mod('akela_phone', '09892528084'); ?>" class="btn btn-outline">📞 Call
                         Us</a>
                 </div>
             </div>
@@ -388,6 +388,8 @@
                         form.style.display = 'none';
                         if (prompt) prompt.style.display = 'none';
 
+                        const meetLink = d.data.meet_link;
+
                         const successDiv = document.createElement('div');
                         successDiv.id = 'booking-success-inline';
                         successDiv.style.flex = '1';
@@ -406,17 +408,18 @@
                                 align-items: center;
                                 width: 100%;
                             ">
-                                <div style="font-size:2rem;margin-bottom:8px;">✅</div>
-                                <h3 style="font-family:var(--font-heading);font-size:1.4rem;color:#1a6641;margin-bottom:8px;">
+                                <div style="font-size:2rem;margin-bottom:8px;">✨</div>
+                                <h3 style="font-family:var(--font-heading);font-size:1.4rem;color:#1a6641;margin-bottom:4px;">
                                     Booking Confirmed!
                                 </h3>
                                 <p style="color:#2d7a55;font-size:0.9rem;margin-bottom:12px;">
-                                    Thanks <strong>${userName}</strong>, we've scheduled your session for:<br>
+                                    Thanks <strong>${userName}</strong>, your session is scheduled for:<br>
                                     <span style="font-weight:600;">📅 ${bookingDate} | 🕐 ${bookingTime}</span>
                                 </p>
-                                <p style="color:#666;font-size:0.8rem;margin-bottom:16px;">
-                                    A confirmation has been sent to your email.
-                                </p>
+                                <div style="background:#fff; border:1px dashed #b2dfcb; padding:12px; border-radius:4px; margin-bottom:16px; width:100%;">
+                                    <p style="font-size:0.7rem; color:#1a6641; font-weight:700; text-transform:uppercase; margin-bottom:4px;">Google Meet Link</p>
+                                    <a href="${meetLink}" target="_blank" style="font-size:0.85rem; color:#1a6641; text-decoration:none; font-family:monospace; word-break:break-all;">${meetLink}</a>
+                                </div>
                                 <button onclick="window.location.reload()" class="btn btn-outline" style="padding:8px 16px; font-size:0.85rem; border-color: #1a6641; color: #1a6641;">
                                     Book Another Session
                                 </button>
@@ -440,7 +443,7 @@
         <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
             <a href="#booking-section" class="btn btn-primary pulsing-btn">Book a Free
                 Session ✨</a>
-            <a href="https://wa.me/<?php echo akela_mod('akela_whatsapp', '919833848425'); ?>" target="_blank"
+            <a href="https://wa.me/<?php echo akela_mod('akela_whatsapp', '919892528084'); ?>" target="_blank"
                 class="btn btn-outline">💬 WhatsApp Us</a>
         </div>
     </div>

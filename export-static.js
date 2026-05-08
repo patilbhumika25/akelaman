@@ -20,7 +20,7 @@ async function copyRecursiveSync(src, dest) {
 }
 
 async function exportStatic() {
-    const port = 9500; // Use a different port to avoid conflicts
+    const port = 9400; // Match the port in blueprint.json
     const baseUrl = `http://127.0.0.1:${port}`;
     const distDir = path.join(__dirname, 'dist');
     const blueprint = fs.existsSync(path.join(__dirname, 'blueprint-no-login.json')) 
@@ -34,6 +34,7 @@ async function exportStatic() {
         '-y', '@wp-playground/cli', 'server', 
         '--port', port.toString(),
         '--blueprint', blueprint,
+        '--blueprint-may-read-adjacent-files',
         '--mount-dir', path.join(__dirname, 'theme', 'akela-mann'), '/wordpress/wp-content/themes/akela-mann',
         '--mount-dir', path.join(__dirname, 'plugin'), '/wordpress/wp-content/plugins/akela-mann-plugin'
     ], { shell: true });
@@ -51,13 +52,19 @@ async function exportStatic() {
         server.stderr.on('data', (data) => {
             console.error(`[SERVER ERR] ${data}`);
         });
-        setTimeout(() => reject(new Error('Server timeout')), 120000);
+        setTimeout(() => reject(new Error('Server timeout')), 300000);
     });
 
     const pages = [
-        { url: '/index.php?static_export=1', file: 'index.html' },
-        { url: '/reels/', file: 'reels/index.html' },
-        { url: '/booking/', file: 'booking/index.html' }
+        { url: '/', file: 'index.html' },
+        { url: '/booking/', file: 'booking/index.html' },
+        { url: '/jab-we-talk/', file: 'jab-we-talk/index.html' },
+        { url: '/life-coaching/', file: 'life-coaching/index.html' },
+        { url: '/mentoring/', file: 'mentoring/index.html' },
+        { url: '/walks-wellness-more/', file: 'walks-wellness-more/index.html' },
+        { url: '/courses/', file: 'courses/index.html' },
+        { url: '/digital-products/', file: 'digital-products/index.html' },
+        { url: '/workshops/', file: 'workshops/index.html' }
     ];
 
     console.log('--- Generating Static Export ---');
@@ -107,6 +114,11 @@ async function exportStatic() {
                     
                     console.log(`  Redirecting to: ${nextUrl}`);
                     if (nextUrl === currentUrl) {
+                        if (page.url === '/' && !currentUrl.endsWith('index.php')) {
+                            console.log('  Self-loop detected on root, trying /index.php fallback...');
+                            currentUrl = baseUrl + '/index.php';
+                            continue;
+                        }
                         console.warn(`  Self-loop detected at ${currentUrl}`);
                         break;
                     }
