@@ -378,47 +378,43 @@
                 .then(r => r.json()).then(d => {
                     if (d.success) {
                         isBooked = true;
-                        // Exactly replace the 'marked part' (form area)
-                        form.style.display = 'none';
-                        if (prompt) prompt.style.display = 'none';
-
-                        const meetLink = d.data.meet_link;
-
-                        const successDiv = document.createElement('div');
-                        successDiv.id = 'booking-success-inline';
-                        successDiv.style.flex = '1';
-                        successDiv.style.display = 'flex';
-                        successDiv.innerHTML = `
-                            <div style="
-                                background: #f0faf4;
-                                border: 1.5px solid #b2dfcb;
-                                border-radius: 4px;
-                                padding: 24px;
-                                text-align: center;
-                                animation: fadeInUp 0.4s ease;
-                                display: flex;
-                                flex-direction: column;
-                                justify-content: center;
-                                align-items: center;
-                                width: 100%;
-                            ">
-                                <div style="font-size:2rem;margin-bottom:8px;">✨</div>
-                                <h3 style="font-family:var(--font-heading);font-size:1.4rem;color:#1a6641;margin-bottom:4px;">
-                                    Booking Confirmed!
-                                </h3>
-                                <p style="color:#2d7a55;font-size:0.9rem;margin-bottom:12px;">
-                                    Thanks <strong>${userName}</strong>, your session is scheduled for:<br>
-                                    <span style="font-weight:600;">📅 ${bookingDate} | 🕐 ${bookingTime}</span>
-                                </p>
-                                <div style="background:#fff; border:1px dashed #b2dfcb; padding:12px; border-radius:4px; margin-bottom:16px; width:100%;">
-                                    <p style="font-size:0.7rem; color:#1a6641; font-weight:700; text-transform:uppercase; margin-bottom:4px;">Google Meet Link</p>
-                                    <a href="${meetLink}" target="_blank" style="font-size:0.85rem; color:#1a6641; text-decoration:none; font-family:monospace; word-break:break-all;">${meetLink}</a>
-                                </div>
-                                <button onclick="window.location.reload()" class="btn btn-outline" style="padding:8px 16px; font-size:0.85rem; border-color: #1a6641; color: #1a6641;">
-                                    Book Another Session
-                                </button>
-                            </div>`;
-                        form.parentNode.appendChild(successDiv);
+                        
+                        // Clear the entire container so the success message replaces everything
+                        const formContainer = document.querySelector('.booking-form-container');
+                        if (formContainer) {
+                            formContainer.innerHTML = '';
+                            
+                            const successDiv = document.createElement('div');
+                            successDiv.id = 'booking-success-inline';
+                            successDiv.style.width = '100%';
+                            successDiv.innerHTML = `
+                                <div style="
+                                    background: #f0faf4;
+                                    border: 1px solid #b2dfcb;
+                                    border-radius: 8px;
+                                    padding: 32px;
+                                    text-align: center;
+                                    animation: fadeInUp 0.4s ease;
+                                    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+                                ">
+                                    <div style="font-size:2.5rem;margin-bottom:12px;">✨</div>
+                                    <h3 style="font-family:inherit;font-size:1.6rem;color:#1a6641;margin-bottom:8px;font-weight:600;">
+                                        Booking Confirmed!
+                                    </h3>
+                                    <p style="color:#2d7a55;font-size:1rem;margin-bottom:20px;line-height:1.5;">
+                                        Thanks <strong>${userName}</strong>, your session is scheduled for:<br>
+                                        <span style="font-weight:700; display:block; margin-top:8px; font-size:1.1rem;">📅 ${bookingDate} | 🕐 ${bookingTime}</span>
+                                    </p>
+                                    <div style="background:#fff; border:1px dashed #b2dfcb; padding:16px; border-radius:6px; margin-bottom:24px; text-align:left;">
+                                        <p style="font-size:0.75rem; color:#1a6641; font-weight:700; text-transform:uppercase; margin-bottom:6px; letter-spacing:1px;">Google Meet Link</p>
+                                        <a href="${meetLink}" target="_blank" style="font-size:0.9rem; color:#1a6641; text-decoration:underline; font-family:monospace; word-break:break-all; font-weight:500;">${meetLink}</a>
+                                    </div>
+                                    <button onclick="window.location.reload()" class="btn btn-primary" style="width:100%; padding:14px; font-size:0.95rem; border-radius:4px; cursor:pointer;">
+                                        Book Another Session
+                                    </button>
+                                </div>`;
+                            formContainer.appendChild(successDiv);
+                        }
                     } else {
                         btn.textContent = 'Confirm Appointment ✨'; btn.disabled = false;
                         alert(d.data || 'Error. Please try again.');
