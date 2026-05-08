@@ -1379,10 +1379,20 @@ p {
         flex-direction: column-reverse;
         gap: 32px;
         width: 100%;
+        margin: 0;
     }
 
     .premium-booking-grid > div {
-        width: 100%;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .calendar-card {
+        width: 100% !important;
+    }
+
+    .time-slots-list {
+        grid-template-columns: 1fr 1fr !important;
     }
     
     .booking-copy h1, .booking-copy h2 {
