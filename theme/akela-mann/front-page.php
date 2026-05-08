@@ -121,7 +121,7 @@
                 <p>Founded by Nishant Hemrajani, we believe that loneliness is not a weakness — it's a signal that you
                     deserve more human connection. We answer that signal every day.</p>
                 <div style="display:flex;gap:16px;margin-top:32px;flex-wrap:wrap;">
-                    <a href="<?php echo home_url('/about-us'); ?>" class="btn btn-primary">About Us</a>
+                    <a href="/#testimonials-section" class="btn btn-primary">About Us</a>
                     <a href="tel:<?php echo akela_mod('akela_phone', '09892528084'); ?>" class="btn btn-outline">📞 Call
                         Us</a>
                 </div>
