@@ -57,6 +57,8 @@ async function exportStatic() {
 
     const pages = [
         { url: '/', file: 'index.html' },
+        { url: '/blogs/', file: 'blogs/index.html' },
+        { url: '/videos/', file: 'videos/index.html' },
         { url: '/booking/', file: 'booking/index.html' },
         { url: '/jab-we-talk/', file: 'jab-we-talk/index.html' },
         { url: '/life-coaching/', file: 'life-coaching/index.html' },
@@ -64,7 +66,13 @@ async function exportStatic() {
         { url: '/walks-wellness-more/', file: 'walks-wellness-more/index.html' },
         { url: '/courses/', file: 'courses/index.html' },
         { url: '/digital-products/', file: 'digital-products/index.html' },
-        { url: '/workshops/', file: 'workshops/index.html' }
+        { url: '/workshops/', file: 'workshops/index.html' },
+        // Blog Posts
+        { url: '/loneliness-in-2025/', file: 'loneliness-in-2025/index.html' },
+        { url: '/khushi-happiness/', file: 'khushi-happiness/index.html' },
+        { url: '/i-am-bored-of-life/', file: 'i-am-bored-of-life/index.html' },
+        { url: '/the-antidote-to-loneliness/', file: 'the-antidote-to-loneliness/index.html' },
+        { url: '/the-fundamental-reality-of-life/', file: 'the-fundamental-reality-of-life/index.html' }
     ];
 
     console.log('--- Generating Static Export ---');
