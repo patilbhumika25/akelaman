@@ -1116,7 +1116,13 @@ p {
     }
 
     .footer-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px 20px;
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+        margin-bottom: 20px;
     }
 
     .footer-bottom {
