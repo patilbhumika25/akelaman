@@ -34,7 +34,7 @@ function akela_setup() {
     remove_action('template_redirect', 'wp_redirect_admin_locations', 10000);
     add_filter('wp_redirect', '__return_false', 9999);
     add_filter('canonical_redirect_rules', '__return_empty_array', 9999);
-    // add_filter('pre_option_permalink_structure', '__return_empty_string', 9999);
+    add_filter('pre_option_permalink_structure', function() { return '/%postname%/'; }, 9999);
 }
 add_action('after_setup_theme', 'akela_setup');
 
