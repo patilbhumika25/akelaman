@@ -576,6 +576,7 @@ function akela_create_blog_posts() {
         
         $post_data = [
             'post_title'   => $p['title'],
+            'post_name'    => $slug,
             'post_content' => $p['content'],
             'post_status'  => 'publish',
             'post_type'    => 'post',
