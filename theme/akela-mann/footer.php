@@ -45,10 +45,10 @@
             <div class="footer-col">
                 <h4>Our Services</h4>
                 <ul>
-                    <li><a href="<?php echo home_url('/services'); ?>">Talking Sessions</a></li>
-                    <li><a href="<?php echo home_url('/services'); ?>">Support Groups</a></li>
-                    <li><a href="<?php echo home_url('/services'); ?>">Online Workshops</a></li>
-                    <li><a href="<?php echo home_url('/services'); ?>">Community Events</a></li>
+                    <li><a href="javascript:void(0)" style="cursor: default;">Talking Sessions</a></li>
+                    <li><a href="javascript:void(0)" style="cursor: default;">Support Groups</a></li>
+                    <li><a href="javascript:void(0)" style="cursor: default;">Online Workshops</a></li>
+                    <li><a href="javascript:void(0)" style="cursor: default;">Community Events</a></li>
                 </ul>
             </div>
 
