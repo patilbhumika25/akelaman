@@ -288,7 +288,27 @@
                     <div id="front-time-slots-container" class="time-slots-grid-premium" style="display:none;">
                         <h4 class="time-slots-title">Select Time Slot</h4>
                         <div id="front-time-slots" class="time-slots-list"></div>
+
+                        <!-- Form moved here -->
+                        <form id="front-booking-form-premium" class="confirm-booking-inline" style="display:none; margin-top: 32px; border-top: 1px solid #eee; padding-top: 24px;">
+                            <input type="hidden" name="action" value="akela_booking">
+                            <input type="hidden" name="nonce" value="<?php echo wp_create_nonce('akela_nonce'); ?>">
+                            <input type="hidden" id="front_bk_date" name="session_date">
+                            <input type="hidden" id="front_bk_time" name="session_time">
+                            
+                            <div class="form-row" style="margin-bottom:16px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                                <div class="form-group"><input type="text" name="name" required placeholder="Your Full Name" style="width:100%; padding:12px; border:1px solid #eee; border-radius:4px;"></div>
+                                <div class="form-group"><input type="email" name="email" required placeholder="Email Address" style="width:100%; padding:12px; border:1px solid #eee; border-radius:4px;"></div>
+                            </div>
+                            <div class="form-group" style="margin-bottom:16px;"><input type="tel" name="phone" required placeholder="Phone / WhatsApp Number" style="width:100%; padding:12px; border:1px solid #eee; border-radius:4px;"></div>
+                            
+                            <button type="submit" class="btn btn-primary" style="width:100%; margin-top:20px; border:none; padding:16px; color:#fff; cursor:pointer; font-weight:600; border-radius:4px;">Confirm Appointment ✨</button>
+                        </form>
                     </div>
+                </div>
+
+                <div id="front-selection-prompt" style="padding:20px; background:#fff9e6; border-radius:4px; margin-top:24px;">
+                    <p style="margin:0; font-size:0.9rem; color:#856404;">Please select a date and time slot from the calendar to proceed with your booking.</p>
                 </div>
             </div>
 
@@ -303,35 +323,6 @@
                     listen and guide you through your journey of connection and healing.</p>
 
                 <p>You are not alone. Start your journey today.</p>
-
-                <!-- Hidden Form for processing -->
-                <form id="front-booking-form-premium" class="confirm-booking-inline" style="display:none;">
-                    <input type="hidden" name="action" value="akela_booking">
-                    <input type="hidden" name="nonce" value="<?php echo wp_create_nonce('akela_nonce'); ?>">
-                    <input type="hidden" id="front_bk_date" name="session_date">
-                    <input type="hidden" id="front_bk_time" name="session_time">
-
-                    <div class="form-row"
-                        style="margin-bottom:16px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
-                        <div class="form-group"><input type="text" name="name" required placeholder="Your Full Name"
-                                style="width:100%; padding:12px; border:1px solid #eee; border-radius:4px;"></div>
-                        <div class="form-group"><input type="email" name="email" required placeholder="Email Address"
-                                style="width:100%; padding:12px; border:1px solid #eee; border-radius:4px;"></div>
-                    </div>
-                    <div class="form-group" style="margin-bottom:16px;"><input type="tel" name="phone" required
-                            placeholder="Phone / WhatsApp Number"
-                            style="width:100%; padding:12px; border:1px solid #eee; border-radius:4px;"></div>
-
-                    <button type="submit" class="btn btn-primary"
-                        style="width:100%; margin-top:20px; border:none; padding:16px; color:#fff; cursor:pointer; font-weight:600; border-radius:4px;">Confirm
-                        Appointment ✨</button>
-                </form>
-
-                <div id="front-selection-prompt"
-                    style="padding:20px; background:#fff9e6; border-radius:4px; margin-top:24px;">
-                    <p style="margin:0; font-size:0.9rem; color:#856404;">Please select a date and time slot from the
-                        calendar to proceed with your booking.</p>
-                </div>
             </div>
 
         </div>
