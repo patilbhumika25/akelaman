@@ -67,12 +67,12 @@ async function exportStatic() {
         { url: '/courses/', file: 'courses/index.html' },
         { url: '/digital-products/', file: 'digital-products/index.html' },
         { url: '/workshops/', file: 'workshops/index.html' },
-        // Blog Posts
-        { url: '/loneliness-in-2025/', file: 'loneliness-in-2025/index.html' },
-        { url: '/khushi-happiness/', file: 'khushi-happiness/index.html' },
-        { url: '/i-am-bored-of-life/', file: 'i-am-bored-of-life/index.html' },
-        { url: '/the-antidote-to-loneliness/', file: 'the-antidote-to-loneliness/index.html' },
-        { url: '/the-fundamental-reality-of-life/', file: 'the-fundamental-reality-of-life/index.html' }
+        // Blog Posts (Matching the date-based structure)
+        { url: '/2025/09/17/loneliness-in-2025/', file: '2025/09/17/loneliness-in-2025/index.html' },
+        { url: '/2025/07/26/khushi-happiness/', file: '2025/07/26/khushi-happiness/index.html' },
+        { url: '/2025/07/23/i-am-bored-of-life/', file: '2025/07/23/i-am-bored-of-life/index.html' },
+        { url: '/2025/07/19/the-antidote-to-loneliness/', file: '2025/07/19/the-antidote-to-loneliness/index.html' },
+        { url: '/2025/07/18/the-fundamental-reality-of-life/', file: '2025/07/18/the-fundamental-reality-of-life/index.html' }
     ];
 
     console.log('--- Generating Static Export ---');
