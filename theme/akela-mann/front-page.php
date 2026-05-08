@@ -384,6 +384,7 @@
                         if (formContainer) {
                             formContainer.innerHTML = '';
                             
+                            const meetLink = d.data.meet_link || 'https://meet.google.com/akela-mann';
                             const successDiv = document.createElement('div');
                             successDiv.id = 'booking-success-inline';
                             successDiv.style.width = '100%';
