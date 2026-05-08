@@ -1356,10 +1356,31 @@ p {
 
 /* Time Slots Grid (Minimalist) */
 .time-slots-grid-premium {
-    margin-top: 24px;
-    padding: 24px;
-    background: #fff;
+    margin-top: 32px;
+    padding-top: 32px;
     border-top: 1px solid #eee;
+}
+
+/* Laptop View: Form at the right */
+@media (min-width: 992px) {
+    #front-time-slots-container {
+        display: grid !important;
+        grid-template-columns: 1fr 1.2fr;
+        gap: 40px;
+        align-items: start;
+    }
+    .time-slots-title {
+        grid-column: 1 / -1;
+    }
+    #front-booking-form-premium {
+        margin-top: 0 !important;
+        border-top: none !important;
+        padding-top: 0 !important;
+        background: #fcfaff;
+        padding: 24px;
+        border-radius: 12px;
+        border: 1px solid rgba(124,77,187,0.1) !important;
+    }
 }
 
 .time-slots-title {
