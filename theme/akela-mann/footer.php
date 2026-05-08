@@ -26,6 +26,17 @@
                 </div>
             </div>
 
+            <!-- Services -->
+            <div class="footer-col">
+                <h4>Our Services</h4>
+                <ul>
+                    <li><a href="javascript:void(0)" style="cursor: default;">Talking Sessions</a></li>
+                    <li><a href="javascript:void(0)" style="cursor: default;">Support Groups</a></li>
+                    <li><a href="javascript:void(0)" style="cursor: default;">Online Workshops</a></li>
+                    <li><a href="javascript:void(0)" style="cursor: default;">Community Events</a></li>
+                </ul>
+            </div>
+
             <!-- Quick Links -->
             <div class="footer-col">
                 <h4>Quick Links</h4>
@@ -38,17 +49,6 @@
                     <li><a href="javascript:void(0)" style="cursor: default;">Videos</a></li>
                     <li><a href="<?php echo home_url('/#site-footer'); ?>">Contact Us</a></li>
                     <li><a href="<?php echo home_url('/#booking-section'); ?>">Book a Session</a></li>
-                </ul>
-            </div>
-
-            <!-- Services -->
-            <div class="footer-col">
-                <h4>Our Services</h4>
-                <ul>
-                    <li><a href="javascript:void(0)" style="cursor: default;">Talking Sessions</a></li>
-                    <li><a href="javascript:void(0)" style="cursor: default;">Support Groups</a></li>
-                    <li><a href="javascript:void(0)" style="cursor: default;">Online Workshops</a></li>
-                    <li><a href="javascript:void(0)" style="cursor: default;">Community Events</a></li>
                 </ul>
             </div>
 
