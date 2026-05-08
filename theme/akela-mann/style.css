@@ -1377,11 +1377,16 @@ p {
     .premium-booking-grid {
         display: flex;
         flex-direction: column-reverse;
-        gap: 40px;
+        gap: 32px;
     }
     
-    .booking-copy h1 {
-        font-size: 2.5rem;
+    .booking-copy h1, .booking-copy h2 {
+        font-size: 2rem !important;
+        margin-bottom: 20px !important;
+    }
+
+    .calendar-wrapper-inner {
+        padding: 16px !important;
     }
 }
 
