@@ -2,35 +2,16 @@
 
 <!-- ── HERO SECTION ──────────────────────────────────────── -->
 <section class="hero">
-    <video class="hero-bg" autoplay muted loop playsinline id="heroVideo"
-        style="object-fit: cover; width: 100%; height: 100%; background-image: none;">
-        <source src="<?php echo get_template_directory_uri(); ?>/images/ocean-waves.mp4" type="video/mp4">
-    </video>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var video = document.getElementById('heroVideo');
-            if (video) {
-                video.playbackRate = 0.7; // A little bit slow as requested
-
-                // Force video to keep playing if it stops for any reason
-                video.addEventListener('pause', function () {
-                    video.play().catch(function () { });
-                });
-                video.addEventListener('ended', function () {
-                    video.play().catch(function () { });
-                });
-            }
-        });
-    </script>
+    <div class="hero-bg"></div>
     <div class="hero-overlay"></div>
     <div class="particles" id="particles"></div>
 
     <div class="hero-content">
-        <div class="hero-tag slide-up-anim" style="animation-delay: 0.1s;">🌙 Pioneer in Eradicating Loneliness</div>
+        <div class="hero-tag slide-up-anim" style="animation-delay: 0.1s;">🌙 AKELA MANN is India’s first solo dating platform</div>
         <h1 class="slide-up-anim" style="animation-delay: 0.3s;">
-            <?php echo akela_mod('akela_hero_tagline', 'You Are Not <br><span>Alone</span>'); ?></h1>
+            <?php echo akela_mod('akela_hero_tagline', 'Discover yourself <br><span>to find another</span>'); ?></h1>
         <p class="slide-up-anim" style="animation-delay: 0.5s;">
-            <?php echo akela_mod('akela_hero_sub', 'We are your friends-in-need. Pioneers in working to eradicate loneliness in India and the World.'); ?>
+            <?php echo akela_mod('akela_hero_sub', 'Go on Solo Dates, Build a strong relationship and Cultivate The Joy of Missing Out'); ?>
         </p>
         <div class="hero-btns slide-up-anim" style="animation-delay: 0.7s;">
             <a href="<?php echo home_url('/#booking-section'); ?>" class="btn btn-primary pulsing-btn">Book a Free
@@ -67,45 +48,53 @@
 </section>
 
 <!-- ── SERVICES SECTION ──────────────────────────────────── -->
-<section id="services-section" class="section-pad services-slider-section">
+<section id="services-section" class="section-pad services-accordion-section">
     <div class="container">
         <div class="text-center" data-aos="fade-up">
             <div class="section-tag">What We Offer</div>
-            <h2 class="section-title">Healing Services for a <span>Lonely Mind</span></h2>
-            <p class="section-subtitle">From one-on-one sessions to community workshops — we have a path for every
-                lonely soul.</p>
+            <h2 class="section-title">Services & <span>Experiences</span></h2>
+            <p class="section-subtitle">We, at Akela Mann are bringing together a host of novel services and experiences for all our true seekers.</p>
         </div>
-    </div>
 
-    <div class="services-slider-wrapper" data-aos="fade-up">
-        <button class="slider-arrow prev" aria-label="Previous service">‹</button>
-        <div class="services-slider-container">
-            <div class="services-slider-track">
-                <?php
-                $services = [
-                    ['🤝', 'JAB WE TALK', 'One-on-one empathetic listening sessions.', 'jab-we-talk'],
-                    ['🌱', 'LIFE COACHING', 'Personalized guidance for your life goals.', 'life-coaching'],
-                    ['👨‍🏫', 'MENTORING', 'Building connection through experienced guidance.', 'mentoring'],
-                    ['🚶‍♀️', 'WALKS, WELLNESS & MORE', 'Outdoor healing and mindfulness activities.', 'walks-wellness-more'],
-                    ['🎓', 'COURSES', 'Structured learning for mental well-being.', 'courses'],
-                    ['💻', 'DIGITAL PRODUCTS', 'Tools and resources for your healing journey.', 'digital-products'],
-                    ['🛠️', 'WORKSHOPS', 'Interactive community sessions for growth.', 'workshops'],
-                ];
-                foreach ($services as [$icon, $title, $desc, $slug]):
-                    ?>
-                    <div class="service-bubble">
-                        <a href="<?php echo home_url('/' . $slug); ?>" class="bubble-link-wrapper">
-                            <div class="bubble-content">
-                                <div class="bubble-icon"><?php echo $icon; ?></div>
-                                <h3 class="bubble-title"><?php echo $title; ?></h3>
-                                <span class="bubble-link">View details</span>
-                            </div>
-                        </a>
+        <div class="accordion-container" data-aos="fade-up">
+            <?php
+            $services = [
+                ['🧘', 'Embrace Solo Dating', 'Discover yourself, build self-love and learn to date yourself.', 'embrace-solo-dating', 'Self-Love'],
+                ['🌅', 'Life Rediscovery Sessions', 'Reconnect with your passions and map out a fresh future.', 'life-rediscovery', 'Growth'],
+                ['💜', 'Therapy Dating', 'Empathetic guidance integrated with your dating journey.', 'therapy-dating', 'Wellness'],
+                ['🎭', 'One Night Stand Experience', 'Safe, structured experiences to explore intimacy and boundaries.', 'one-night-stand', 'Intimacy'],
+                ['⏳', 'Single beyond 35/40/45', 'Support and guidance for navigating mature singlehood.', 'single-mature-years', 'Support'],
+                ['👻', 'The Ghost of Lust', 'Understanding your sexual desires and emotional connections.', 'ghost-of-lust', 'Desire'],
+                ['🔓', 'Free Sex in India', 'Educational talks and workshops on sexual health and taboos.', 'free-sex-india', 'Awareness'],
+                ['👩', 'Solo Women’s Needs', 'Dedicated safe space and coaching for women’s fulfillment.', 'solo-womens-needs', 'Empowerment'],
+                ['🤱', 'Love is Motherly', 'Unconditional nurturing care and emotional support.', 'love-is-motherly', 'Care'],
+                ['🎉', 'Akela Mann Party', 'Social gatherings for solo dating seekers to connect.', 'akela-mann-party', 'Community'],
+            ];
+            $i = 1;
+            foreach ($services as [$icon, $title, $desc, $slug, $badge]):
+                $formatted_num = sprintf('%02d', $i);
+                ?>
+                <div class="accordion-panel">
+                    <!-- Collapsed view -->
+                    <div class="panel-collapsed-content">
+                        <span class="panel-number"><?php echo $formatted_num; ?></span>
+                        <span class="panel-collapsed-icon"><?php echo $icon; ?></span>
+                        <h4 class="panel-title-collapsed"><?php echo str_replace(' ', '<br>', $title); ?></h4>
                     </div>
-                <?php endforeach; ?>
-            </div>
+                    <!-- Expanded view -->
+                    <div class="panel-expanded-content">
+                        <span class="panel-badge"><?php echo $badge; ?></span>
+                        <div class="panel-icon"><?php echo $icon; ?></div>
+                        <h3 class="panel-title-horizontal"><?php echo $title; ?></h3>
+                        <p class="panel-desc"><?php echo $desc; ?></p>
+                        <a href="<?php echo home_url('/' . $slug); ?>" class="panel-link">View details →</a>
+                    </div>
+                </div>
+                <?php
+                $i++;
+            endforeach;
+            ?>
         </div>
-        <button class="slider-arrow next" aria-label="Next service">›</button>
     </div>
 </section>
 
@@ -114,16 +103,14 @@
     <div class="container">
         <div class="grid-2">
             <div data-aos="fade-right">
-                <div class="section-tag">Our Mission</div>
-                <h2 class="section-title">A World Where <span>No One Feels Alone</span></h2>
-                <p>At Akela Mann, our mission is to support people feeling lonely and socially isolated by bringing joy,
-                    happiness, and a sense of community into their lives.</p>
-                <p>Founded by Nishant Hemrajani, we believe that loneliness is not a weakness — it's a signal that you
-                    deserve more human connection. We answer that signal every day.</p>
+                <div class="section-tag">What is Solo Dating?</div>
+                <h2 class="section-title">Why is it <span>Important?</span></h2>
+                <p>Solo dating is the journey one undertakes to find his or her own self. This can be done through self talks, deep meditation, solo walks, reading books, travelling alone, etc. If you are someone who always feels left out of the race or community, then Universe is preparing you for something big.</p>
+                <p><strong>Welcome to Akela Mann.</strong></p>
+                <p>Solo dating is important more than anything today as the society has become uncaring and unlovable. So we need to be alone, independent and learn this art of self care.</p>
                 <div style="display:flex;gap:16px;margin-top:32px;flex-wrap:wrap;">
-                    <a href="/#testimonials-section" class="btn btn-primary">About Us</a>
-                    <a href="tel:<?php echo akela_mod('akela_phone', '09892528084'); ?>" class="btn btn-outline">📞 Call
-                        Us</a>
+                    <a href="tel:+919892528084" class="btn btn-primary">📞 Call +919892528084</a>
+                    <a href="mailto:nishant@akelamann.com" class="btn btn-outline">📧 Email Us</a>
                 </div>
             </div>
             <div data-aos="fade-left" data-aos-delay="100">

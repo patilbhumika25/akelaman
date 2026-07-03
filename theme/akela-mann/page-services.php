@@ -20,12 +20,16 @@
     <div class="container">
         <?php
         $services = [
-            ['🗣️', 'Talking Sessions',   '₹0 — Free', 'One-on-one confidential conversations with a compassionate listener. No judgment, only understanding. Available online and in-person.', ['50 min session', 'Video/phone call', 'Available Mon–Fri']],
-            ['👥', 'Support Groups',      '₹0 — Free', 'Weekly group sessions where lonely souls come together. Share, listen, and heal in a safe, moderated environment.', ['8–12 participants', 'Every Saturday', 'Online via Zoom']],
-            ['🧘', 'Mindfulness Workshops','₹500/session', 'Monthly guided workshops combining breathwork, meditation, and journaling to deepen your relationship with yourself.', ['3-hour workshop', 'Online & in-person', 'Mumbai, Delhi, Bangalore']],
-            ['✍️',  'Story Sharing',      '₹0 — Free', 'Submit your loneliness story anonymously. Your words might be the lifeline someone else needs today.', ['Anonymous option', 'Published on blog', 'Any language']],
-            ['🎤', 'Community Events',    '₹200/event', 'Curated in-person meetups — coffee mornings, art sessions, nature walks — designed to spark real friendships.', ['15 cities', 'Monthly events', 'Small groups (max 20)']],
-            ['🏢', 'Corporate Sessions',  'Custom Pricing', 'Workplace loneliness is real. We offer corporate workshops to help build belonging within teams.', ['2–4 hour sessions', 'For 15–200 employees', 'Certificate provided']],
+            ['🧘', 'Embrace Solo Dating', '₹0 — Free', 'Discover yourself, build self-love and learn to date yourself.', ['Self-guided itineraries', 'Mindful activities', 'Available online']],
+            ['🌅', 'Life Rediscovery Sessions', '₹1,000/session', 'Reconnect with your passions and map out a fresh future.', ['1-on-1 private coaching', 'Personalized vision board', '60-min session']],
+            ['💜', 'Therapy Dating', '₹1,500/session', 'Empathetic guidance integrated with your dating journey.', ['Certified relationship therapist', 'Safe environment', 'Confidential sessions']],
+            ['🎭', 'One Night Stand Experience', '₹2,000/experience', 'Safe, structured experiences to explore intimacy and boundaries.', ['Strict safety protocols', 'Pre-experience briefing', 'Explore intimacy boundaries']],
+            ['⏳', 'Single beyond 35/40/45', '₹500/session', 'Support and guidance for navigating mature singlehood.', ['Group discussion', 'Shared experiences', 'Weekly moderation']],
+            ['👻', 'The Ghost of Lust', '₹1,200/session', 'Understanding your sexual desires and emotional connections.', ['Deep emotional exploration', 'Desire mapping', '1-on-1 guidance']],
+            ['🔓', 'Free Sex in India', '₹0 — Free', 'Educational talks and workshops on sexual health and taboos.', ['Awareness workshops', 'Expert panel discussions', 'Open to all']],
+            ['👩', 'Solo Women’s Needs', '₹1,000/session', 'Dedicated safe space and coaching for women’s fulfillment.', ['Women-only coaching', 'Safe sharing space', 'Emotional empowerment']],
+            ['🤱', 'Love is Motherly', '₹0 — Free', 'Unconditional nurturing care and emotional support.', ['Empathetic listening', 'Warm emotional sanctuary', 'Nurturing conversation']],
+            ['🎉', 'Akela Mann Party', '₹500/entry', 'Social gatherings for solo dating seekers to connect.', ['Curated social mixer', 'In-person events', 'Meet like-minded seekers']],
         ];
         foreach ($services as $i => [$icon, $title, $price, $desc, $features]):
         ?>

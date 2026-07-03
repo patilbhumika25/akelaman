@@ -13,11 +13,12 @@
     <div class="container">
         <div class="grid-2">
             <div data-aos="fade-right">
-                <div class="section-tag">Our Story</div>
-                <h2 class="section-title">Akela Mann means a <span>Lonely Mind</span></h2>
-                <p>We are your friends-in-need. We are pioneers in working to eradicate loneliness in India and the World.</p>
-                <p><strong>Our Mission:</strong> At AKELA MANN, our mission is to support people feeling lonely and socially isolated by bringing joy, happiness, and a sense of community into their lives.</p>
-                <p>Founded by <strong>Nishant Hemrajani</strong>, we believe that no one should have to carry the weight of loneliness alone. We are here to listen, to talk, and to heal.</p>
+                <div class="section-tag">Our Mission</div>
+                <h2 class="section-title">Embrace <span>Solo Dating</span></h2>
+                <p>AKELA MANN is India’s first solo dating platform. Our mission is to motivate people for solo dates, help them rediscover themselves and teach them to date.</p>
+                <p>Solo dating is the journey one undertakes to find his or her own self. This can be done through self talks, deep meditation, solo walks, reading books, travelling alone, etc. If you are someone who always feels left out of the race or community, then Universe is preparing you for something big.</p>
+                <p><strong>Welcome to Akela Mann.</strong></p>
+                <p>Solo dating is important more than anything today as the society has become uncaring and unlovable. So we need to be alone, independent and learn this art of self care.</p>
             </div>
             <div data-aos="fade-left" data-aos-delay="200">
                 <img src="<?php echo get_template_directory_uri(); ?>/images/about.png" alt="Community" style="border-radius:16px;border:1px solid rgba(164,123,224,0.25);box-shadow:0 16px 64px rgba(124,77,187,0.2);">

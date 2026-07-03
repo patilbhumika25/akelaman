@@ -20,7 +20,7 @@ async function copyRecursiveSync(src, dest) {
 }
 
 async function exportStatic() {
-    const port = 9400; // Match the port in blueprint.json
+    const port = 9500; // Use port 9500 to avoid conflicts with running dev server
     const baseUrl = `http://127.0.0.1:${port}`;
     const distDir = path.join(__dirname, 'dist');
     const blueprint = fs.existsSync(path.join(__dirname, 'blueprint-no-login.json')) 
@@ -67,6 +67,17 @@ async function exportStatic() {
         { url: '/courses/', file: 'courses/index.html' },
         { url: '/digital-products/', file: 'digital-products/index.html' },
         { url: '/workshops/', file: 'workshops/index.html' },
+        // 10 Services
+        { url: '/embrace-solo-dating/', file: 'embrace-solo-dating/index.html' },
+        { url: '/life-rediscovery/', file: 'life-rediscovery/index.html' },
+        { url: '/therapy-dating/', file: 'therapy-dating/index.html' },
+        { url: '/one-night-stand/', file: 'one-night-stand/index.html' },
+        { url: '/single-mature-years/', file: 'single-mature-years/index.html' },
+        { url: '/ghost-of-lust/', file: 'ghost-of-lust/index.html' },
+        { url: '/free-sex-india/', file: 'free-sex-india/index.html' },
+        { url: '/solo-womens-needs/', file: 'solo-womens-needs/index.html' },
+        { url: '/love-is-motherly/', file: 'love-is-motherly/index.html' },
+        { url: '/akela-mann-party/', file: 'akela-mann-party/index.html' },
         // Blog Posts
         { url: '/loneliness-in-2025/', file: 'loneliness-in-2025/index.html' },
         { url: '/khushi-happiness/', file: 'khushi-happiness/index.html' },

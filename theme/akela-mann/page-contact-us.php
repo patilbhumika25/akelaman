@@ -85,7 +85,7 @@
 
                 <div class="glass-card">
                     <h3 style="font-family:var(--font-heading);margin-bottom:16px;">📧 Email &amp; Address</h3>
-                    <p>📧 <a href="mailto:<?php echo akela_mod('akela_email','hello@akelamann.com'); ?>"><?php echo akela_mod('akela_email','hello@akelamann.com'); ?></a></p>
+                    <p>📧 <a href="mailto:<?php echo akela_mod('akela_email','nishant@akelamann.com'); ?>"><?php echo akela_mod('akela_email','nishant@akelamann.com'); ?></a></p>
                     <p>📍 <?php echo akela_mod('akela_address','Mumbai, India'); ?></p>
                     <div style="margin-top:16px;border-radius:8px;overflow:hidden;height:180px;background:rgba(26,26,62,0.5);display:flex;align-items:center;justify-content:center;border:1px solid rgba(164,123,224,0.2);">
                         <p style="color:var(--text-muted);">🗺️ Map Embed</p>

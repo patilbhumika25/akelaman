@@ -8,7 +8,7 @@
                     <div class="logo-mark">AM</div>
                     <span class="logo-text">Akela <span>Mann</span></span>
                 </a>
-                <p>We are your friends-in-need. Pioneers in working to eradicate loneliness in India and the World.</p>
+                <p>AKELA MANN is India’s first solo dating platform. Our mission is to motivate people for solo dates, help them rediscover themselves and teach them to date.</p>
                 <div class="footer-social">
                     <?php if ($ig = akela_mod('akela_instagram')): ?>
                     <a href="<?php echo esc_url($ig); ?>" class="social-icon" target="_blank" aria-label="Instagram">📸</a>
@@ -57,7 +57,7 @@
                 <h4>Contact Us</h4>
                 <ul>
                     <li>📞 <a href="tel:<?php echo akela_mod('akela_phone', '+919892528084'); ?>"><?php echo akela_mod('akela_phone', '+91 98925 28084'); ?></a></li>
-                    <li>📧 <a href="mailto:<?php echo akela_mod('akela_email', 'hello@akelamann.com'); ?>"><?php echo akela_mod('akela_email', 'hello@akelamann.com'); ?></a></li>
+                    <li>📧 <a href="mailto:<?php echo akela_mod('akela_email', 'nishant@akelamann.com'); ?>"><?php echo akela_mod('akela_email', 'nishant@akelamann.com'); ?></a></li>
                     <li>📍 <?php echo akela_mod('akela_address', 'Mumbai, India'); ?></li>
                 </ul>
             </div>
