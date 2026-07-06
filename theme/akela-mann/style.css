@@ -1068,6 +1068,15 @@ p {
 }
 
 @media (max-width: 768px) {
+    .site-header,
+    .site-header.scrolled {
+        background: transparent !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        border-bottom: none !important;
+        box-shadow: none !important;
+    }
+
     .nav-inner {
         padding: 16px 24px;
     }
@@ -1156,6 +1165,15 @@ p {
     .stats-grid {
         grid-template-columns: 1fr 1fr;
     }
+    .section-pad {
+        padding: 48px 0;
+    }
+    .section-pad-sm {
+        padding: 32px 0;
+    }
+    #site-footer {
+        padding: 40px 0 20px !important;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1164,7 +1182,10 @@ p {
     }
 
     .section-pad {
-        padding: 64px 0;
+        padding: 32px 0;
+    }
+    .section-pad-sm {
+        padding: 24px 0;
     }
 
     .stats-grid {
