@@ -347,6 +347,7 @@ p {
     gap: 5px;
     cursor: pointer;
     padding: 8px;
+    z-index: 100000;
 }
 
 .hamburger span {
@@ -1082,7 +1083,8 @@ p {
         left: 0;
         right: 0;
         bottom: 0;
-        background: rgba(10, 10, 26, 0.97);
+        background: #ffffff;
+        z-index: 99999;
         flex-direction: column;
         align-items: center;
         justify-content: center;
@@ -1910,5 +1912,23 @@ p {
 @media (max-width: 480px) {
     .blog-slide {
         min-width: 100%;
+    }
+}
+
+.about-btns-group {
+    display: flex;
+    gap: 16px;
+    margin-top: 32px;
+}
+@media (max-width: 576px) {
+    .about-btns-group {
+        gap: 10px;
+    }
+    .about-btns-group .btn {
+        flex: 1;
+        padding: 12px 10px;
+        font-size: 0.85rem;
+        justify-content: center;
+        white-space: nowrap;
     }
 }

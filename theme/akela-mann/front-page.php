@@ -187,8 +187,8 @@
                 <p>Solo dating is the journey one undertakes to find his or her own self. This can be done through self talks, deep meditation, solo walks, reading books, travelling alone, etc. If you are someone who always feels left out of the race or community, then Universe is preparing you for something big.</p>
                 <p><strong>Welcome to Akela Mann.</strong></p>
                 <p>Solo dating is important more than anything today as the society has become uncaring and unlovable. So we need to be alone, independent and learn this art of self care.</p>
-                <div style="display:flex;gap:16px;margin-top:32px;flex-wrap:wrap;">
-                    <a href="tel:+919892528084" class="btn btn-primary">📞 Call +919892528084</a>
+                <div class="about-btns-group">
+                    <a href="tel:+919892528084" class="btn btn-primary">📞 Call Us</a>
                     <a href="mailto:nishant@akelamann.com" class="btn btn-outline">📧 Email Us</a>
                 </div>
             </div>
