@@ -48,7 +48,7 @@
 </section>
 
 <!-- ── SERVICES SECTION ──────────────────────────────────── -->
-<section id="services-section" class="section-pad services-accordion-section">
+<section id="services-section" class="section-pad services-carousel-section">
     <div class="container">
         <div class="text-center" data-aos="fade-up">
             <div class="section-tag">What We Offer</div>
@@ -56,46 +56,122 @@
             <p class="section-subtitle">We, at Akela Mann are bringing together a host of novel services and experiences for all our true seekers.</p>
         </div>
 
-        <div class="accordion-container" data-aos="fade-up">
-            <?php
-            $services = [
-                ['🧘', 'Embrace Solo Dating', 'Discover yourself, build self-love and learn to date yourself.', 'embrace-solo-dating', 'Self-Love'],
-                ['🌅', 'Life Rediscovery Sessions', 'Reconnect with your passions and map out a fresh future.', 'life-rediscovery', 'Growth'],
-                ['💜', 'Therapy Dating', 'Empathetic guidance integrated with your dating journey.', 'therapy-dating', 'Wellness'],
-                ['🎭', 'One Night Stand Experience', 'Safe, structured experiences to explore intimacy and boundaries.', 'one-night-stand', 'Intimacy'],
-                ['⏳', 'Single beyond 35/40/45', 'Support and guidance for navigating mature singlehood.', 'single-mature-years', 'Support'],
-                ['👻', 'The Ghost of Lust', 'Understanding your sexual desires and emotional connections.', 'ghost-of-lust', 'Desire'],
-                ['🔓', 'Free Sex in India', 'Educational talks and workshops on sexual health and taboos.', 'free-sex-india', 'Awareness'],
-                ['👩', 'Solo Women’s Needs', 'Dedicated safe space and coaching for women’s fulfillment.', 'solo-womens-needs', 'Empowerment'],
-                ['🤱', 'Love is Motherly', 'Unconditional nurturing care and emotional support.', 'love-is-motherly', 'Care'],
-                ['🎉', 'Akela Mann Party', 'Social gatherings for solo dating seekers to connect.', 'akela-mann-party', 'Community'],
-            ];
-            $i = 1;
-            foreach ($services as [$icon, $title, $desc, $slug, $badge]):
-                $formatted_num = sprintf('%02d', $i);
-                ?>
-                <div class="accordion-panel">
-                    <!-- Collapsed view -->
-                    <div class="panel-collapsed-content">
-                        <span class="panel-number"><?php echo $formatted_num; ?></span>
-                        <span class="panel-collapsed-icon"><?php echo $icon; ?></span>
-                        <h4 class="panel-title-collapsed"><?php echo str_replace(' ', '<br>', $title); ?></h4>
-                    </div>
-                    <!-- Expanded view -->
-                    <div class="panel-expanded-content">
-                        <span class="panel-badge"><?php echo $badge; ?></span>
-                        <div class="panel-icon"><?php echo $icon; ?></div>
-                        <h3 class="panel-title-horizontal"><?php echo $title; ?></h3>
-                        <p class="panel-desc"><?php echo $desc; ?></p>
-                        <a href="<?php echo home_url('/' . $slug); ?>" class="panel-link">View details →</a>
-                    </div>
+        <div class="carousel-wrapper" data-aos="fade-up">
+            <!-- Left Arrow -->
+            <button class="carousel-arrow prev" aria-label="Previous service">
+                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            </button>
+            
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <?php
+                    $services = [
+                        ['🧘', 'Embrace Solo Dating', 'Discover yourself, build self-love and learn to date yourself.', 'embrace-solo-dating'],
+                        ['🌅', 'Life Rediscovery Sessions', 'Reconnect with your passions and map out a fresh future.', 'life-rediscovery'],
+                        ['💜', 'Therapy Dating', 'Empathetic guidance integrated with your dating journey.', 'therapy-dating'],
+                        ['🎭', 'One Night Stand Experience', 'Safe, structured experiences to explore intimacy and boundaries.', 'one-night-stand'],
+                        ['⏳', 'Single beyond 35/40/45', 'Support and guidance for navigating mature singlehood.', 'single-mature-years'],
+                        ['👻', 'The Ghost of Lust', 'Understanding your sexual desires and emotional connections.', 'ghost-of-lust'],
+                        ['🔓', 'Free Sex in India', 'A safe space for open conversations and connections.', 'free-sex-india'],
+                        ['👩', 'Solo Women’s Needs', 'Empowering women to explore their individual needs.', 'solo-womens-needs'],
+                        ['🤱', 'Love is Motherly', 'Unconditional nurturing care and emotional support.', 'love-is-motherly'],
+                        ['🎉', 'Akela Mann Party', 'Social gatherings for solo dating seekers to connect.', 'akela-mann-party'],
+                    ];
+                    foreach ($services as [$icon, $title, $desc, $slug]):
+                        ?>
+                        <div class="carousel-card">
+                            <a href="<?php echo home_url('/' . $slug); ?>" class="card-content-link">
+                                <div class="card-icon-wrapper">
+                                    <span class="card-icon"><?php echo $icon; ?></span>
+                                </div>
+                                <h3 class="card-title"><?php echo $title; ?></h3>
+                                <p class="card-desc"><?php echo $desc; ?></p>
+                                <span class="card-link">View details &rarr;</span>
+                            </a>
+                        </div>
+                    <?php endforeach; ?>
                 </div>
-                <?php
-                $i++;
-            endforeach;
-            ?>
+            </div>
+
+            <!-- Right Arrow -->
+            <button class="carousel-arrow next" aria-label="Next service">
+                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </button>
         </div>
+
+        <!-- Pagination Dots -->
+        <div class="carousel-dots"></div>
     </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const container = document.querySelector('.carousel-container');
+        const track = document.querySelector('.carousel-track');
+        const prevBtn = document.querySelector('.carousel-arrow.prev');
+        const nextBtn = document.querySelector('.carousel-arrow.next');
+        const dotsContainer = document.querySelector('.carousel-dots');
+
+        if (!container || !track) return;
+
+        const cards = Array.from(track.children);
+        if (cards.length === 0) return;
+
+        const getVisibleCardsCount = () => {
+            if (window.innerWidth <= 640) return 1;
+            if (window.innerWidth <= 991) return 2;
+            return 3;
+        };
+
+        const updateDots = () => {
+            dotsContainer.innerHTML = '';
+            const visibleCount = getVisibleCardsCount();
+            const totalDots = Math.max(1, cards.length - visibleCount + 1);
+
+            for (let i = 0; i < totalDots; i++) {
+                const dot = document.createElement('div');
+                dot.classList.add('dot');
+                if (i === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => {
+                    const cardWidth = cards[0].getBoundingClientRect().width + 30;
+                    container.scrollTo({ left: i * cardWidth, behavior: 'smooth' });
+                });
+                dotsContainer.appendChild(dot);
+            }
+        };
+
+        const updateActiveDot = () => {
+            const cardWidth = cards[0].getBoundingClientRect().width + 30;
+            const scrollLeft = container.scrollLeft;
+            const activeIndex = Math.round(scrollLeft / cardWidth);
+            const dots = dotsContainer.querySelectorAll('.dot');
+            dots.forEach((dot, index) => {
+                if (index === activeIndex) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        };
+
+        prevBtn?.addEventListener('click', () => {
+            const cardWidth = cards[0].getBoundingClientRect().width + 30;
+            container.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+        });
+
+        nextBtn?.addEventListener('click', () => {
+            const cardWidth = cards[0].getBoundingClientRect().width + 30;
+            container.scrollBy({ left: cardWidth, behavior: 'smooth' });
+        });
+
+        container.addEventListener('scroll', updateActiveDot);
+        window.addEventListener('resize', () => {
+            updateDots();
+            updateActiveDot();
+        });
+
+        updateDots();
+    });
+    </script>
 </section>
 
 <!-- ── MISSION SECTION ─────────────────────────────────────-->
