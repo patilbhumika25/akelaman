@@ -1480,21 +1480,20 @@ p {
 }
 .carousel-card {
     flex: 0 0 calc((100% - 60px) / 3);
-    background: #ffffff;
+    background: #fffbf0; /* Premium warm cream color */
     border-radius: 24px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
-    border: 1px solid rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(234, 88, 12, 0.08); /* Soft orange-tinted border */
     transition: all 0.4s cubic-bezier(0.25, 1, 0.3, 1);
     overflow: hidden;
     display: flex;
     flex-direction: column;
 }
-.card-content-link {
+.card-content-wrapper {
     display: flex;
     flex-direction: column;
     height: 100%;
     padding: 40px 35px;
-    text-decoration: none;
     color: inherit;
 }
 .card-icon-wrapper {
@@ -1522,18 +1521,6 @@ p {
     flex-grow: 1;
     transition: color 0.3s;
 }
-.carousel-card .card-link {
-    font-size: 0.88rem;
-    color: var(--accent-orange);
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: all 0.3s;
-    margin-top: auto;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-}
 
 /* Hover State - Solid Orange Background */
 .carousel-card:hover {
@@ -1547,9 +1534,6 @@ p {
 }
 .carousel-card:hover .card-desc {
     color: rgba(255, 255, 255, 0.9);
-}
-.carousel-card:hover .card-link {
-    color: #ffffff;
 }
 
 /* Navigation Arrows */

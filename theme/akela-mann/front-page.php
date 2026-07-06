@@ -80,13 +80,13 @@
                     foreach ($services as [$icon, $title, $desc, $slug]):
                         ?>
                         <div class="carousel-card">
-                            <a href="<?php echo home_url('/' . $slug); ?>" class="card-content-link">
+                            <div class="card-content-wrapper">
                                 <div class="card-icon-wrapper">
                                     <span class="card-icon"><?php echo $icon; ?></span>
                                 </div>
                                 <h3 class="card-title"><?php echo $title; ?></h3>
                                 <p class="card-desc"><?php echo $desc; ?></p>
-                            </a>
+                            </div>
                         </div>
                     <?php endforeach; ?>
                 </div>
