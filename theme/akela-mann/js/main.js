@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Map link text to section IDs for a robust experience
             const anchorMap = {
-                'about us': 'testimonials-section',
+                'about us': 'about-section',
                 'services': 'services-section',
                 'blogs': 'blog-section',
                 'contact': 'site-footer',
