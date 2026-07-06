@@ -125,7 +125,7 @@
         const updateDots = () => {
             dotsContainer.innerHTML = '';
             const visibleCount = getVisibleCardsCount();
-            const totalDots = Math.max(1, cards.length - visibleCount + 1);
+            const totalDots = Math.ceil(cards.length / visibleCount);
 
             for (let i = 0; i < totalDots; i++) {
                 const dot = document.createElement('div');
@@ -133,7 +133,8 @@
                 if (i === 0) dot.classList.add('active');
                 dot.addEventListener('click', () => {
                     const cardWidth = cards[0].getBoundingClientRect().width + 30;
-                    container.scrollTo({ left: i * cardWidth, behavior: 'smooth' });
+                    const scrollAmount = i * visibleCount * cardWidth;
+                    container.scrollTo({ left: scrollAmount, behavior: 'smooth' });
                 });
                 dotsContainer.appendChild(dot);
             }
@@ -141,11 +142,12 @@
 
         const updateActiveDot = () => {
             const cardWidth = cards[0].getBoundingClientRect().width + 30;
+            const visibleCount = getVisibleCardsCount();
             const scrollLeft = container.scrollLeft;
-            const activeIndex = Math.round(scrollLeft / cardWidth);
+            const activePageIndex = Math.round(scrollLeft / (cardWidth * visibleCount));
             const dots = dotsContainer.querySelectorAll('.dot');
             dots.forEach((dot, index) => {
-                if (index === activeIndex) {
+                if (index === activePageIndex) {
                     dot.classList.add('active');
                 } else {
                     dot.classList.remove('active');
@@ -155,12 +157,14 @@
 
         prevBtn?.addEventListener('click', () => {
             const cardWidth = cards[0].getBoundingClientRect().width + 30;
-            container.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+            const visibleCount = getVisibleCardsCount();
+            container.scrollBy({ left: -(cardWidth * visibleCount), behavior: 'smooth' });
         });
 
         nextBtn?.addEventListener('click', () => {
             const cardWidth = cards[0].getBoundingClientRect().width + 30;
-            container.scrollBy({ left: cardWidth, behavior: 'smooth' });
+            const visibleCount = getVisibleCardsCount();
+            container.scrollBy({ left: (cardWidth * visibleCount), behavior: 'smooth' });
         });
 
         container.addEventListener('scroll', updateActiveDot);
