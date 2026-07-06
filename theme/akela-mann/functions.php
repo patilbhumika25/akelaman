@@ -737,3 +737,16 @@ function akela_get_service_details($slug) {
 }
 
 add_action('init', 'akela_create_blog_posts');
+
+// ── Filter custom nav menu items to map About Us to home page #about-section ──
+function akela_filter_menu_items($items) {
+    if (is_array($items)) {
+        foreach ($items as $item) {
+            if (isset($item->title) && strcasecmp($item->title, 'About Us') === 0) {
+                $item->url = home_url('/#about-section');
+            }
+        }
+    }
+    return $items;
+}
+add_filter('wp_get_nav_menu_items', 'akela_filter_menu_items', 10, 1);

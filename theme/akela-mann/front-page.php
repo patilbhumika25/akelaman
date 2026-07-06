@@ -178,7 +178,7 @@
 </section>
 
 <!-- ── MISSION SECTION ─────────────────────────────────────-->
-<section class="section-pad" style="background:linear-gradient(135deg,#ffffff,#f0edf8);">
+<section id="about-section" class="section-pad" style="background:linear-gradient(135deg,#ffffff,#f0edf8);">
     <div class="container">
         <div class="grid-2">
             <div data-aos="fade-right">

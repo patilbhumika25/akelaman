@@ -1902,6 +1902,9 @@ p {
     .blog-slide {
         min-width: calc(50% - 10px);
     }
+    .stats-strip {
+        display: none;
+    }
 }
 
 @media (max-width: 480px) {
