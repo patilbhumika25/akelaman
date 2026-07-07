@@ -502,7 +502,7 @@ function akela_create_blog_posts() {
 
 <p>Finally, I will say that if you are lonely and after reading this, you feel like reaching out to me, I will be happy to talk and discuss about anything that we can. There are many ways to reach out via my number on the website or my mail address. I am a happy-go-lucky man. I love to challenge convention. I love to live on the edge, and I absolutely love to talk to new people. So take that step and reach out to me. Tata, bye, take care and loads of love to you all.</p>',
             'date' => '2025-09-17 12:00:00',
-            'categories' => ['Life in 2025', 'loneliness'],
+            'categories' => ['Life in 2025', 'Loneliness'],
             'image' => 'loneliness.png'
         ],
         [
@@ -523,7 +523,7 @@ function akela_create_blog_posts() {
 <p>So, how will we reach that place? Who will guide us towards that? We want something that is far superior than what we see with our eyes.</p>
 <p>Namaste Mitron, Aapka din acha rahe.</p>',
             'date' => '2025-07-26 12:00:00',
-            'categories' => ['Happiness', 'loneliness'],
+            'categories' => ['Happiness', 'Loneliness'],
             'image' => 'happiness.png'
         ],
         [
@@ -555,7 +555,7 @@ function akela_create_blog_posts() {
 <p>Better still go out of the house or your self-created cocoon, and start talking to security guards, nearby people or say even irrelevant people for time-being to start the habit.</p>
 <p>And the fun part is you can call me. I will be your friend. Because I love talking a lot. And that is the best way out of loneliness.</p>',
             'date' => '2025-07-19 12:00:00',
-            'categories' => ['loneliness', 'Kiss and cuddles'],
+            'categories' => ['Loneliness', 'Kiss and cuddles'],
             'image' => 'antidote.png'
         ],
         [

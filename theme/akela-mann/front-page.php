@@ -182,8 +182,9 @@
     <div class="container">
         <div class="grid-2">
             <div data-aos="fade-right">
+                <h2 class="section-title" style="margin-bottom: 8px;">About Us</h2>
                 <div class="section-tag">What is Solo Dating?</div>
-                <h2 class="section-title">Why is it <span>Important?</span></h2>
+                <h3 style="font-family: var(--font-heading); font-size: 1.8rem; font-weight: 700; line-height: 1.2; margin-bottom: 20px; color: var(--text-primary);">Why is it <span style="color: var(--accent-orange);">Important?</span></h3>
                 <p>Solo dating is the journey one undertakes to find his or her own self. This can be done through self talks, deep meditation, solo walks, reading books, travelling alone, etc. If you are someone who always feels left out of the race or community, then Universe is preparing you for something big.</p>
                 <p><strong>Welcome to Akela Mann.</strong></p>
                 <p>Solo dating is important more than anything today as the society has become uncaring and unlovable. So we need to be alone, independent and learn this art of self care.</p>
@@ -217,7 +218,7 @@
                 <li data-filter="kiss-and-cuddles">Kiss and cuddles</li>
                 <li data-filter="life-in-2025">Life in 2025</li>
                 <li data-filter="spiritual-awakening">Spiritual Awakening</li>
-                <li data-filter="loneliness">loneliness</li>
+                <li data-filter="loneliness">Loneliness</li>
             </ul>
         </div>
 
@@ -326,10 +327,8 @@
                     <?php endforeach; endif; ?>
             </div>
             <!-- Controls -->
-            <button class="testimonial-prev" aria-label="Previous"
-                style="position:absolute;left:0;top:50%;transform:translateY(-50%);background:rgba(124,77,187,0.3);border:1px solid rgba(164,123,224,0.3);color:#c9b8e8;width:44px;height:44px;border-radius:50%;cursor:pointer;font-size:1.2rem;">‹</button>
-            <button class="testimonial-next" aria-label="Next"
-                style="position:absolute;right:0;top:50%;transform:translateY(-50%);background:rgba(124,77,187,0.3);border:1px solid rgba(164,123,224,0.3);color:#c9b8e8;width:44px;height:44px;border-radius:50%;cursor:pointer;font-size:1.2rem;">›</button>
+            <button class="testimonial-prev" aria-label="Previous">‹</button>
+            <button class="testimonial-next" aria-label="Next">›</button>
         </div>
         <div class="testimonial-dots" style="display:flex;justify-content:center;gap:8px;margin-top:24px;"></div>
     </div>
