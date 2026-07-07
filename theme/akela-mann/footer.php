@@ -5,7 +5,7 @@
             <!-- Brand -->
             <div class="footer-brand">
                 <a href="<?php echo home_url('/'); ?>" class="site-logo">
-                    <div class="logo-mark">AM</div>
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/logo-bloom.png" alt="Akela Mann Logo" class="site-logo-img">
                     <span class="logo-text">Akela <span>Mann</span></span>
                 </a>
                 <p>AKELA MANN is India’s first solo dating platform. Our mission is to motivate people for solo dates, help them rediscover themselves and teach them to date.</p>
@@ -35,7 +35,6 @@
                     <li><a href="/#services-section">Services</a></li>
                     <li><a href="/#blog-section">Blogs</a></li>
 
-                    <li><a href="javascript:void(0)" style="cursor: default;">Videos</a></li>
                     <li><a href="/#site-footer">Contact Us</a></li>
                     <li><a href="/#booking-section">Book a Session</a></li>
                 </ul>
