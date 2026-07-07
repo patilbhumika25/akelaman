@@ -341,7 +341,7 @@
         <div class="premium-booking-grid">
 
             <!-- Left Side: Calendar Card -->
-            <div data-aos="fade-up">
+            <div class="booking-cal-col" data-aos="fade-up">
                 <div class="calendar-card">
                     <div class="calendar-card-header">
                         <h3>Date & Time Selection</h3>

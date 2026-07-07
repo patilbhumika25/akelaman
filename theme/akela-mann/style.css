@@ -1465,6 +1465,15 @@ p {
         grid-template-columns: 1fr;
         gap: 32px;
     }
+
+    .booking-cal-col {
+        order: 2;
+    }
+
+    #booking-section.booking-page-premium {
+        min-height: auto !important;
+        padding: 40px 0 !important;
+    }
     
     .booking-right-col {
         display: contents; /* Allows children to be siblings in the grid */
