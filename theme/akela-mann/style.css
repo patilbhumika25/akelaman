@@ -294,6 +294,13 @@ p {
     font-weight: 700;
 }
 
+.site-logo-img {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+}
+
 .logo-text {
     font-family: var(--font-heading);
     font-size: 1.3rem;

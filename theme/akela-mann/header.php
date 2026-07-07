@@ -13,7 +13,7 @@
 <header class="site-header" id="site-header">
     <nav class="nav-inner">
         <a href="<?php echo home_url('/'); ?>" class="site-logo">
-            <div class="logo-mark">AM</div>
+            <img src="<?php echo get_template_directory_uri(); ?>/images/logo-bloom.png" alt="Akela Mann Logo" class="site-logo-img">
             <span class="logo-text">Akela <span>Mann</span></span>
         </a>
 
