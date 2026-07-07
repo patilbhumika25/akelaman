@@ -465,6 +465,12 @@ function akela_create_blog_posts() {
         wp_delete_post($hello_world->ID, true);
     }
 
+    // Force rename 'loneliness' category to 'Loneliness' if it exists in the database
+    $loneliness_term = get_term_by('slug', 'loneliness', 'category');
+    if ($loneliness_term && $loneliness_term->name !== 'Loneliness') {
+        wp_update_term($loneliness_term->term_id, 'category', ['name' => 'Loneliness']);
+    }
+
     $approved_titles = [
         'Loneliness in 2025',
         'KHUSHI (HAPPINESS)',
